@@ -76,8 +76,7 @@ E-commerce website for selling books built with Vue 3, Express.js, MySQL, featur
 
 ### Admin Dashboard
 
-<!-- TODO: [Must Have] Insert screenshot of the Admin Dashboard here -->
-![Admin Dashboard Screenshot](./assets/screenshots/admin_dashboard_placeholder.png)
+![Admin Dashboard Screenshot](./images/admin.png)
 *Admin Dashboard Overview*
 
 - Book management (CRUD, cover image upload).
