@@ -1,0 +1,51 @@
+# Hệ điều hành
+.DS_Store
+Thumbs.db
+
+# IDE / editors
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.gemini
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Builds / bundlers
+dist/
+dist-ssr/
+build/
+.next/
+out/
+*.local
+
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+.note
+
+# Databases / media / uploads
+*.sqlite3
+*.db
+*.sqlite
+media_storage/
+uploads/
+
+# Logs & reports
+logs/
+*.log
+coverage/
+coverage-final.json
+
+# Misc
+Thumbs.db
+.DS_Store
