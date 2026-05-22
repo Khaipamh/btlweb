@@ -1,25 +1,26 @@
 import { Link } from 'react-router-dom';
+import { EVENT_BANNERS } from '@/constants/eventBanners';
 
 const giftCards = [
   {
     id: 1,
-    title: 'Christmas Gift Card 200K',
-    image: 'https://placehold.co/600x375/166534/FFF?text=Christmas+Gift+Card',
+    title: 'Phiếu quà 1/6 — Thiếu nhi',
+    image: EVENT_BANNERS.childrenDay16,
   },
   {
     id: 2,
-    title: 'Gift Card 200K',
-    image: 'https://placehold.co/600x375/991b1b/FFF?text=Gift+Card+200K',
+    title: 'Gift Card Sale mùa hè 6/6',
+    image: EVENT_BANNERS.summerSale66,
   },
   {
     id: 3,
-    title: 'Gift Card Premium',
-    image: 'https://placehold.co/600x375/0f172a/FFF?text=Gift+Card+Premium',
+    title: 'Gift Card sách hot hè',
+    image: EVENT_BANNERS.summerBooksSale,
   },
   {
     id: 4,
-    title: 'Gift Card 100K',
-    image: 'https://placehold.co/600x375/475569/FFF?text=Winter+100K',
+    title: 'Ưu đãi mùa hè 100K',
+    image: EVENT_BANNERS.sidePromoSummer,
   },
 ];
 
@@ -28,8 +29,10 @@ export default function GiftCardSection() {
     <div className="container mx-auto mt-6 px-4">
       <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
         <div className="flex items-center gap-3 mb-4 pb-2 border-b border-gray-100">
-          <img src="https://cdn-icons-png.flaticon.com/512/3595/3595827.png" className="w-6 h-6" alt="" />
-          <h2 className="text-lg md:text-xl font-bold text-gray-800 uppercase">Phiếu quà tặng - Gift Card</h2>
+          <img src="https://cdn-icons-png.flaticon.com/512/869/869636.png" className="w-6 h-6" alt="" />
+          <h2 className="text-lg md:text-xl font-bold text-gray-800 uppercase">
+            Phiếu quà tặng — Sale mùa hè 1/6 & 6/6
+          </h2>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {giftCards.map((card) => (
@@ -41,6 +44,9 @@ export default function GiftCardSection() {
                   alt={card.title}
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                <span className="absolute bottom-2 left-2 right-2 text-white text-xs font-bold bg-black/50 px-2 py-1 rounded truncate">
+                  {card.title}
+                </span>
               </div>
             </div>
           ))}

@@ -70,13 +70,19 @@ export default function Footer() {
                 </button>
               </li>
               <li>
-                <span className="hover:text-pink-600 transition cursor-pointer">Thay đổi địa chỉ khách hàng</span>
+                <Link to="/user/profile?tab=address" className="hover:text-pink-600 transition">
+                  Thay đổi địa chỉ khách hàng
+                </Link>
               </li>
               <li>
-                <span className="hover:text-pink-600 transition cursor-pointer">Chi tiết tài khoản</span>
+                <Link to="/user/profile?tab=profile" className="hover:text-pink-600 transition">
+                  Chi tiết tài khoản
+                </Link>
               </li>
               <li>
-                <span className="hover:text-pink-600 transition cursor-pointer">Lịch sử mua hàng</span>
+                <Link to="/user/orders" className="hover:text-pink-600 transition">
+                  Lịch sử mua hàng
+                </Link>
               </li>
             </ul>
 

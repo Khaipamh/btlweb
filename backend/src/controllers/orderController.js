@@ -1,5 +1,5 @@
 const { models, sequelize } = require('../config/database');
-const { Order, OrderItem, Cart, CartItem, Book, Address, Voucher, User, Transaction } = models;
+const { Order, OrderItem, Cart, CartItem, Book, BookImage, Address, Voucher, User, Transaction } = models;
 const { BaseOrderPrice, VoucherDecorator, ShippingFeeDecorator } = require('../patterns/PricingDecorators');
 
 const normalizePaymentMethod = (m) => String(m || '').trim().toLowerCase();
@@ -161,38 +161,73 @@ const createOrder = async (req, res) => {
   }
 };
 
+const orderIncludeForCustomer = [
+  {
+    model: OrderItem,
+    include: [
+      {
+        model: Book,
+        attributes: ['book_id', 'book_title', 'book_slug', 'price'],
+        include: [{ model: BookImage, attributes: ['book_image_url'] }],
+      },
+    ],
+  },
+  { model: Transaction, attributes: ['transaction_id', 'status', 'payment_method', 'amount'] },
+  { model: Address, attributes: ['address_detail', 'recipient_name', 'phone'] },
+];
+
 // Lấy đơn hàng của người dùng hiện tại
 const getMyOrders = async (req, res) => {
   try {
-    const { page = 1, limit = 10 } = req.query;
+    const { page = 1, limit = 10, status } = req.query;
     const offset = (page - 1) * limit;
-    const limitInt = parseInt(limit);
+    const limitInt = parseInt(limit, 10);
+
+    const where = { user_id: req.user_id };
+    if (status && status !== 'all') {
+      where.order_status = status;
+    }
 
     const { count, rows } = await Order.findAndCountAll({
-      where: { user_id: req.user_id },
+      where,
       order: [['created_at', 'DESC']],
-      include: [
-        { model: OrderItem, include: [{ model: Book, attributes: ['book_title'] }] },
-        { model: Transaction, attributes: ['transaction_id', 'status', 'payment_method'] },
-        { model: Address, attributes: ['address_detail', 'recipient_name', 'phone'] }
-      ],
+      include: orderIncludeForCustomer,
       limit: limitInt,
-      offset: offset,
-      distinct: true
+      offset,
+      distinct: true,
     });
 
-    res.status(200).json({ 
-        success: true, 
-        data: rows,
-        meta: {
-            total: count,
-            page: parseInt(page),
-            limit: limitInt,
-            totalPages: Math.ceil(count / limitInt)
-        }
+    res.status(200).json({
+      success: true,
+      data: rows,
+      meta: {
+        total: count,
+        page: parseInt(page, 10),
+        limit: limitInt,
+        totalPages: Math.ceil(count / limitInt) || 1,
+      },
     });
   } catch (error) {
-    console.error("Lỗi getMyOrders:", error);
+    console.error('Lỗi getMyOrders:', error);
+    res.status(500).json({ success: false, message: 'Lỗi máy chủ' });
+  }
+};
+
+// Chi tiết một đơn hàng của người dùng hiện tại
+const getMyOrderById = async (req, res) => {
+  try {
+    const order = await Order.findOne({
+      where: { order_id: req.params.id, user_id: req.user_id },
+      include: orderIncludeForCustomer,
+    });
+
+    if (!order) {
+      return res.status(404).json({ success: false, message: 'Không tìm thấy đơn hàng' });
+    }
+
+    res.status(200).json({ success: true, data: order });
+  } catch (error) {
+    console.error('Lỗi getMyOrderById:', error);
     res.status(500).json({ success: false, message: 'Lỗi máy chủ' });
   }
 };
@@ -339,7 +374,11 @@ const deleteOrderAdmin = async (req, res) => {
 };
 
 module.exports = {
-  createOrder, getMyOrders, getAllOrders, updateOrderStatus,
+  createOrder,
+  getMyOrders,
+  getMyOrderById,
+  getAllOrders,
+  updateOrderStatus,
   createFakeOrder,
-  deleteOrderAdmin
+  deleteOrderAdmin,
 };

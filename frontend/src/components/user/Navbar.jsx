@@ -292,6 +292,12 @@ export default function Navbar() {
                       >
                         Hồ sơ cá nhân
                       </Link>
+                      <Link
+                        to="/user/orders"
+                        className="w-full block text-center py-3 hover:bg-pink-50 text-pink-700 rounded-lg text-base font-bold mb-1 transition"
+                      >
+                        Lịch sử mua hàng
+                      </Link>
                       <button
                         type="button"
                         onClick={() => logout()}

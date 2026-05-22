@@ -1,20 +1,23 @@
 import { useEffect, useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Link, Navigate, useSearchParams } from 'react-router-dom';
 import { message } from 'antd';
 import { useAuthStore } from '@/stores/authStore';
 import api from '@/services/api';
+import OrderHistory from '@/components/user/OrderHistory';
 
 export default function UserProfile() {
   const user = useAuthStore((s) => s.user);
   const setUser = useAuthStore((s) => s.setUser);
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const [tab, setTab] = useState('profile');
+  const tab = searchParams.get('tab') || 'profile';
+  const setTab = (t) => setSearchParams({ tab: t });
+
   const [profile, setProfile] = useState({ full_name: '', phone: '' });
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState('');
   const [pwd, setPwd] = useState({ old: '', new1: '', new2: '' });
   const [addresses, setAddresses] = useState([]);
-  const [orders, setOrders] = useState([]);
 
   useEffect(() => {
     if (user) {
@@ -31,20 +34,9 @@ export default function UserProfile() {
     }
   };
 
-  const loadOrders = async () => {
-    try {
-      const res = await api.get('/api/orders/my-orders', { params: { page: 1, limit: 20 } });
-      const list = res?.data ?? res ?? [];
-      setOrders(Array.isArray(list) ? list : []);
-    } catch {
-      setOrders([]);
-    }
-  };
-
   useEffect(() => {
     if (!user) return;
     if (tab === 'address') loadAddresses();
-    if (tab === 'orders') loadOrders();
   }, [tab, user]);
 
   if (!user) return <Navigate to="/" replace />;
@@ -77,6 +69,12 @@ export default function UserProfile() {
     }
   };
 
+  const tabs = [
+    { id: 'profile', label: 'Hồ Sơ Của Tôi' },
+    { id: 'address', label: 'Sổ Địa Chỉ' },
+    { id: 'orders', label: 'Lịch Sử Mua Hàng' },
+  ];
+
   return (
     <div className="container mx-auto py-10 px-4 md:px-12">
       <div className="flex flex-col md:flex-row gap-8">
@@ -94,16 +92,16 @@ export default function UserProfile() {
               </div>
             </div>
             <ul className="flex flex-col gap-2 text-sm">
-              {['profile', 'address', 'orders'].map((t) => (
-                <li key={t}>
+              {tabs.map((t) => (
+                <li key={t.id}>
                   <button
                     type="button"
-                    onClick={() => setTab(t)}
+                    onClick={() => setTab(t.id)}
                     className={`w-full text-left p-2 rounded cursor-pointer border-0 ${
-                      tab === t ? 'font-bold text-[#C92127] bg-red-50' : 'text-gray-600 hover:text-[#C92127]'
+                      tab === t.id ? 'font-bold text-[#C92127] bg-red-50' : 'text-gray-600 hover:text-[#C92127]'
                     }`}
                   >
-                    {t === 'profile' ? 'Hồ Sơ Của Tôi' : t === 'address' ? 'Sổ Địa Chỉ' : 'Đơn Hàng Của Tôi'}
+                    {t.label}
                   </button>
                 </li>
               ))}
@@ -154,27 +152,24 @@ export default function UserProfile() {
             <div>
               <h1 className="text-2xl font-bold mb-4">Sổ địa chỉ</h1>
               <ul className="space-y-2">
-                {addresses.map((a) => (
-                  <li key={a.address_id} className="border rounded p-3 text-sm">
-                    <strong>{a.recipient_name}</strong> — {a.phone}
-                    <br />
-                    {a.address_detail}
-                  </li>
-                ))}
+                {addresses.length === 0 ? (
+                  <p className="text-gray-500 text-sm">Chưa có địa chỉ lưu. Địa chỉ sẽ được lưu khi bạn đặt hàng tại trang thanh toán.</p>
+                ) : (
+                  addresses.map((a) => (
+                    <li key={a.address_id} className="border rounded p-3 text-sm">
+                      <strong>{a.recipient_name}</strong> — {a.phone}
+                      <br />
+                      {a.address_detail}
+                    </li>
+                  ))
+                )}
               </ul>
             </div>
           ) : null}
           {tab === 'orders' ? (
             <div>
-              <h1 className="text-2xl font-bold mb-4">Đơn hàng</h1>
-              <ul className="space-y-2 text-sm">
-                {orders.map((o) => (
-                  <li key={o.order_id} className="border rounded p-3 flex justify-between">
-                    <span>#{o.order_id}</span>
-                    <span>{o.order_status}</span>
-                  </li>
-                ))}
-              </ul>
+              <h1 className="text-2xl font-bold text-gray-800 mb-6 border-b pb-4">Lịch sử mua hàng</h1>
+              <OrderHistory embedded />
             </div>
           ) : null}
         </div>

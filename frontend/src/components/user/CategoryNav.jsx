@@ -1,7 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 
 const fixedItems = [
-  { name: '12.12', icon: 'https://cdn-icons-png.flaticon.com/512/3652/3652191.png', bgClass: 'bg-red-50', path: '/event-1212' },
+  {
+    name: 'Sale 6/6',
+    icon: 'https://cdn-icons-png.flaticon.com/512/869/869636.png',
+    bgClass: 'bg-yellow-50',
+    path: '/event-summer-66',
+  },
   { name: 'Gift Card', icon: 'https://cdn-icons-png.flaticon.com/512/3210/3210036.png', bgClass: 'bg-green-50', path: '/gift-card' },
   { name: 'Mã Giảm Giá', icon: 'https://cdn-icons-png.flaticon.com/512/879/879757.png', bgClass: 'bg-orange-50', path: '/vouchers' },
   { name: 'Điểm Danh', icon: 'https://cdn-icons-png.flaticon.com/512/7518/7518748.png', bgClass: 'bg-pink-50', path: '/attendance' },
