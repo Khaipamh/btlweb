@@ -9,7 +9,14 @@ import './style.css';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <ConfigProvider locale={viVN}>
+      <ConfigProvider
+        locale={viVN}
+        theme={{
+          token: {
+            colorPrimary: '#db2777',
+          },
+        }}
+      >
         <App />
       </ConfigProvider>
     </BrowserRouter>

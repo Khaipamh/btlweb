@@ -3,7 +3,7 @@ export default function StoreSystem() {
     <div className="bg-gray-50 min-h-screen py-8">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
-          <h1 className="text-3xl md:text-4xl font-bold text-blue-600 mb-2 uppercase">Hệ Thống Nhà Sách Sahafa</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-pink-600 mb-2 uppercase">Hệ Thống Nhà Sách Sahafa</h1>
           <p className="text-gray-600">Tìm nhà sách gần bạn nhất để trải nghiệm không gian văn hóa đọc</p>
         </div>
         <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col lg:flex-row min-h-[500px] border border-gray-200">

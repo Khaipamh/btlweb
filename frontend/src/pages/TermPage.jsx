@@ -25,7 +25,7 @@ export default function TermPage() {
                     <Link
                       to={`/policy/${item.slug}`}
                       className={`block px-3 py-2 rounded transition-colors ${
-                        slug === item.slug ? 'bg-blue-50 text-blue-600 font-medium' : 'text-gray-600 hover:bg-gray-50 hover:text-blue-600'
+                        slug === item.slug ? 'bg-pink-50 text-pink-600 font-medium' : 'text-gray-600 hover:bg-gray-50 hover:text-pink-600'
                       }`}
                     >
                       {item.name}

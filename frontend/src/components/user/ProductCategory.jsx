@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import api from '@/services/api';
 
 const genreMap = {
-  fiction: { vi: 'Tiểu Thuyết', icon: 'https://cdn-icons-png.flaticon.com/512/2232/2232688.png', bg: 'bg-blue-50 group-hover:bg-blue-100' },
+  fiction: { vi: 'Tiểu Thuyết', icon: 'https://cdn-icons-png.flaticon.com/512/2232/2232688.png', bg: 'bg-pink-50 group-hover:bg-pink-100' },
   'science-fiction': { vi: 'Viễn Tưởng', icon: 'https://cdn-icons-png.flaticon.com/512/2040/2040660.png', bg: 'bg-indigo-50 group-hover:bg-indigo-100' },
   mystery: { vi: 'Trinh Thám', icon: 'https://cdn-icons-png.flaticon.com/512/3079/3079120.png', bg: 'bg-purple-50 group-hover:bg-purple-100' },
   romance: { vi: 'Lãng Mạn', icon: 'https://cdn-icons-png.flaticon.com/512/1077/1077035.png', bg: 'bg-pink-50 group-hover:bg-pink-100' },

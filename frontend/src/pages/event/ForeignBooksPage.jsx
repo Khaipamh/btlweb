@@ -25,7 +25,7 @@ export default function ForeignBooksPage() {
           ))}
         </div>
       </div>
-      <div className="mt-8 bg-blue-50 pt-8 pb-0 rounded-t-[3rem]">
+      <div className="mt-8 bg-pink-50 pt-8 pb-0 rounded-t-[3rem]">
         <div className="container mx-auto px-4">
           <SuggestionsPage isEmbedded />
         </div>

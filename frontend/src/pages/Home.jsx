@@ -147,7 +147,7 @@ export default function Home() {
                 />
               </div>
               <div className="flex-1 flex flex-col">
-                <h4 className="font-bold text-gray-800 text-sm line-clamp-2 mb-1 group-hover:text-blue-600 transition">
+                <h4 className="font-bold text-gray-800 text-sm line-clamp-2 mb-1 group-hover:text-pink-600 transition">
                   {book.title}
                 </h4>
                 <div className="mt-auto flex items-end justify-between">
@@ -182,7 +182,7 @@ export default function Home() {
         <BookListSection title="Sách Mới Tuyển Chọn" books={newBooks} seeMoreLink="/new-arrivals" />
       ) : null}
 
-      <div className="mt-8 bg-blue-50 pt-8 pb-0 rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.2)] relative z-10">
+      <div className="mt-8 bg-pink-50 pt-8 pb-0 rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.2)] relative z-10">
         <div className="container mx-auto px-4">
           <SuggestionsPage isEmbedded />
         </div>

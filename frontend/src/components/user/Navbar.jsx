@@ -82,7 +82,7 @@ export default function Navbar() {
 
   return (
     <div className="sticky top-0 z-50">
-      <header className="bg-blue-600 text-white py-2 shadow-md font-sans">
+      <header className="bg-pink-600 text-white py-2 shadow-md font-sans">
         <div className="container mx-auto flex items-center justify-between px-4 lg:px-8 gap-6">
           <div className="flex items-center gap-6 shrink-0">
             <Link to="/" className="text-2xl font-extrabold tracking-tighter flex items-center italic">
@@ -90,7 +90,7 @@ export default function Navbar() {
             </Link>
 
             <div className="relative group z-50">
-              <div className="flex items-center justify-center cursor-pointer hover:bg-blue-700 w-10 h-10 rounded-lg transition p-2 border-2 border-transparent hover:border-blue-400">
+              <div className="flex items-center justify-center cursor-pointer hover:bg-pink-700 w-10 h-10 rounded-lg transition p-2 border-2 border-transparent hover:border-pink-400">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
                   <path
                     fillRule="evenodd"
@@ -113,11 +113,11 @@ export default function Navbar() {
                             key={genre.genre_id}
                             role="presentation"
                             onClick={() => goToCategory(genre.genre_slug)}
-                            className="px-6 py-3 cursor-pointer hover:bg-blue-50 hover:text-blue-700 flex items-center gap-4 transition-colors border-l-4 border-transparent hover:border-blue-600"
+                            className="px-6 py-3 cursor-pointer hover:bg-pink-50 hover:text-pink-700 flex items-center gap-4 transition-colors border-l-4 border-transparent hover:border-pink-600"
                           >
                             <img src={g.icon} className="w-8 h-8 object-contain" alt="" />
                             <div className="flex flex-col leading-tight">
-                              <span className="font-bold text-gray-800 text-lg hover:text-blue-700">{g.viName}</span>
+                              <span className="font-bold text-gray-800 text-lg hover:text-pink-700">{g.viName}</span>
                               <span className="text-xs text-gray-500 font-semibold uppercase tracking-wide">
                                 {genre.genre_name}
                               </span>
@@ -146,7 +146,7 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={goToSearchPage}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-2 py-1 rounded-lg font-bold transition flex items-center justify-center shrink-0"
+                className="bg-pink-600 hover:bg-pink-700 text-white px-2 py-1 rounded-lg font-bold transition flex items-center justify-center shrink-0"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -166,7 +166,7 @@ export default function Navbar() {
                           key={book.book_id}
                           role="presentation"
                           onClick={() => goToDetail(book.book_slug || book.book_id)}
-                          className="flex gap-4 p-4 hover:bg-blue-50 cursor-pointer border-b border-gray-100 last:border-none transition-colors"
+                          className="flex gap-4 p-4 hover:bg-pink-50 cursor-pointer border-b border-gray-100 last:border-none transition-colors"
                         >
                           <img
                             src={book.BookImages?.[0]?.book_image_url || 'https://placehold.co/100x150'}
@@ -189,7 +189,7 @@ export default function Navbar() {
                     <div
                       role="presentation"
                       onClick={goToSearchPage}
-                      className="p-4 text-center bg-gray-50 text-blue-600 text-sm font-extrabold uppercase hover:bg-blue-100 cursor-pointer border-t tracking-wider transition-colors"
+                      className="p-4 text-center bg-gray-50 text-pink-600 text-sm font-extrabold uppercase hover:bg-pink-100 cursor-pointer border-t tracking-wider transition-colors"
                     >
                       Xem tất cả kết quả
                     </div>
@@ -230,7 +230,7 @@ export default function Navbar() {
                 />
               </svg>
               {totalItems > 0 ? (
-                <span className="absolute -top-2 -right-2 bg-yellow-400 text-red-700 text-xs font-extrabold rounded-full h-6 w-6 flex items-center justify-center border-[3px] border-blue-600">
+                <span className="absolute -top-2 -right-2 bg-yellow-400 text-red-700 text-xs font-extrabold rounded-full h-6 w-6 flex items-center justify-center border-[3px] border-pink-600">
                   {totalItems}
                 </span>
               ) : null}
@@ -261,14 +261,14 @@ export default function Navbar() {
                       <button
                         type="button"
                         onClick={() => openLoginModal('login')}
-                        className="w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition shadow-md text-base"
+                        className="w-full bg-pink-600 text-white font-bold py-3 rounded-lg hover:bg-pink-700 transition shadow-md text-base"
                       >
                         Đăng nhập
                       </button>
                       <button
                         type="button"
                         onClick={() => openLoginModal('register')}
-                        className="w-full bg-white text-blue-600 border-2 border-blue-600 font-bold py-3 rounded-lg hover:bg-blue-50 transition text-base"
+                        className="w-full bg-white text-pink-600 border-2 border-pink-600 font-bold py-3 rounded-lg hover:bg-pink-50 transition text-base"
                       >
                         Đăng ký
                       </button>
@@ -288,7 +288,7 @@ export default function Navbar() {
                       ) : null}
                       <Link
                         to="/user/profile"
-                        className="w-full block text-center py-3 hover:bg-blue-50 text-blue-700 rounded-lg text-base font-bold mb-1 transition"
+                        className="w-full block text-center py-3 hover:bg-pink-50 text-pink-700 rounded-lg text-base font-bold mb-1 transition"
                       >
                         Hồ sơ cá nhân
                       </Link>

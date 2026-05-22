@@ -106,7 +106,7 @@ export default function Cart() {
                     <div>
                       <Link
                         to={`/books/${item.book_id}`}
-                        className="font-medium text-gray-800 line-clamp-2 mb-1 text-sm md:text-base hover:text-blue-600"
+                        className="font-medium text-gray-800 line-clamp-2 mb-1 text-sm md:text-base hover:text-pink-600"
                       >
                         {item.title}
                       </Link>
@@ -172,7 +172,7 @@ export default function Cart() {
                 >
                   Tiến Hành Thanh Toán
                 </button>
-                <Link to="/" className="block text-center text-blue-600 hover:underline mt-4 text-sm font-medium">
+                <Link to="/" className="block text-center text-pink-600 hover:underline mt-4 text-sm font-medium">
                   ← Tiếp Tục Mua Sắm
                 </Link>
               </div>

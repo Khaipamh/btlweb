@@ -40,12 +40,12 @@ export default function Event1212() {
   }, []);
 
   return (
-    <div className="bg-blue-600 min-h-screen font-sans pb-0">
+    <div className="bg-pink-600 min-h-screen font-sans pb-0">
       <div className="container mx-auto px-4 py-8">
-        <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-b from-blue-800 to-blue-600 border-4 border-white/20">
+        <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-b from-pink-800 to-pink-600 border-4 border-white/20">
           <div className="aspect-[3/1] flex items-center justify-center relative flex-col text-white p-8 text-center min-h-[280px]">
             <h1 className="text-[60px] md:text-[100px] font-black leading-none text-yellow-300">12.12</h1>
-            <h2 className="text-2xl md:text-4xl font-bold uppercase tracking-widest mb-6 bg-blue-900/50 px-8 py-2 rounded-full backdrop-blur-md border border-white/30 mt-4">
+            <h2 className="text-2xl md:text-4xl font-bold uppercase tracking-widest mb-6 bg-pink-900/50 px-8 py-2 rounded-full backdrop-blur-md border border-white/30 mt-4">
               Lễ Hội Mua Sắm Xanh
             </h2>
             <div className="flex gap-4 mb-6 items-center justify-center">
@@ -65,7 +65,7 @@ export default function Event1212() {
               </div>
             </div>
             <div className="flex gap-4 flex-wrap justify-center">
-              <span className="bg-white text-blue-700 font-bold px-6 py-3 rounded-full shadow-lg">ĐỒNG GIÁ 120K</span>
+              <span className="bg-white text-pink-700 font-bold px-6 py-3 rounded-full shadow-lg">ĐỒNG GIÁ 120K</span>
               <span className="bg-yellow-400 text-red-600 font-bold px-6 py-3 rounded-full shadow-lg">VOUCHER 50%</span>
             </div>
           </div>
@@ -74,11 +74,11 @@ export default function Event1212() {
               {vouchers.map((v, index) => (
                 <div key={index} className="bg-white flex rounded-lg overflow-hidden h-24 min-w-[260px] shadow-lg shrink-0">
                   <div className="p-3 flex-1 flex flex-col justify-center border-r border-dashed border-gray-200">
-                    <h3 className="text-blue-700 font-bold text-lg">Giảm {v.value}</h3>
+                    <h3 className="text-pink-700 font-bold text-lg">Giảm {v.value}</h3>
                     <p className="text-xs text-gray-500">{v.condition}</p>
                   </div>
-                  <div className="w-20 flex items-center justify-center p-2 bg-blue-50">
-                    <span className="text-xs font-bold bg-blue-600 text-white px-3 py-1.5 rounded">Lưu</span>
+                  <div className="w-20 flex items-center justify-center p-2 bg-pink-50">
+                    <span className="text-xs font-bold bg-pink-600 text-white px-3 py-1.5 rounded">Lưu</span>
                   </div>
                 </div>
               ))}
@@ -92,14 +92,14 @@ export default function Event1212() {
         <div className="flex flex-wrap justify-center gap-6">
           {timeline.map((item, idx) => (
             <div key={idx} className="bg-white rounded-2xl p-4 w-40 md:w-48 border-b-8 border-yellow-400 shadow-xl text-gray-800">
-              <div className="text-4xl font-black text-blue-700 mb-1">{item.date}</div>
+              <div className="text-4xl font-black text-pink-700 mb-1">{item.date}</div>
               <div className="text-sm font-bold uppercase">{item.title}</div>
               <div className="text-xs text-gray-500 uppercase">{item.sub}</div>
             </div>
           ))}
         </div>
       </div>
-      <div className="mt-8 bg-blue-50 pt-8 pb-0 rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.2)] relative z-10">
+      <div className="mt-8 bg-pink-50 pt-8 pb-0 rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.2)] relative z-10">
         <div className="container mx-auto px-4">
           <SuggestionsPage isEmbedded />
         </div>

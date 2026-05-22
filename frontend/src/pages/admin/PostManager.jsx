@@ -172,7 +172,7 @@ export default function PostManager() {
                 <div>
                   <button
                     type="button"
-                    className="font-bold text-base text-left text-gray-800 hover:text-blue-600"
+                    className="font-bold text-base text-left text-gray-800 hover:text-pink-600"
                     onClick={() => viewPost(row)}
                   >
                     {row.title}

@@ -237,7 +237,7 @@ export default function CheckoutPage() {
                   <select
                     value={selectedAddressId ?? ''}
                     onChange={(e) => onSelectAddress(e.target.value ? Number(e.target.value) : null)}
-                    className="text-sm border border-blue-300 text-blue-600 rounded px-2 py-1 outline-none bg-blue-50 cursor-pointer"
+                    className="text-sm border border-pink-300 text-pink-600 rounded px-2 py-1 outline-none bg-pink-50 cursor-pointer"
                   >
                     <option value="">-- Nhập địa chỉ mới --</option>
                     {myAddresses.map((addr) => (
@@ -349,12 +349,12 @@ export default function CheckoutPage() {
 
             <div className="bg-white p-6 rounded-lg shadow-sm">
               <h2 className="font-bold text-gray-800 mb-4 uppercase text-sm">Phương thức vận chuyển</h2>
-              <div className="border rounded p-4 flex justify-between items-center bg-blue-50 border-blue-200">
+              <div className="border rounded p-4 flex justify-between items-center bg-pink-50 border-pink-200">
                 <div>
                   <p className="font-bold text-gray-800">Giao hàng tiêu chuẩn</p>
                   <p className="text-sm text-gray-500">Dự kiến giao hàng: 3 - 5 ngày</p>
                 </div>
-                <span className="font-bold text-blue-600">30.000đ</span>
+                <span className="font-bold text-pink-600">30.000đ</span>
               </div>
             </div>
 
@@ -363,7 +363,7 @@ export default function CheckoutPage() {
               <div className="flex flex-col gap-3">
                 <label
                   className={`flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition ${
-                    form.payment === 'sepay' ? 'border-blue-500 bg-blue-50' : ''
+                    form.payment === 'sepay' ? 'border-pink-500 bg-pink-50' : ''
                   }`}
                 >
                   <input
@@ -377,7 +377,7 @@ export default function CheckoutPage() {
                 </label>
                 <label
                   className={`flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition ${
-                    form.payment === 'cod' ? 'border-blue-500 bg-blue-50' : ''
+                    form.payment === 'cod' ? 'border-pink-500 bg-pink-50' : ''
                   }`}
                 >
                   <input
@@ -409,7 +409,7 @@ export default function CheckoutPage() {
                     </div>
                     <div className="flex-1">
                       <h3 className="text-sm font-medium text-gray-700 line-clamp-2">{item.title}</h3>
-                      <p className="font-bold text-[#2563EB] mt-1">{formatPrice(item.price * item.quantity)}đ</p>
+                      <p className="font-bold text-[#db2777] mt-1">{formatPrice(item.price * item.quantity)}đ</p>
                     </div>
                   </div>
                 ))}
@@ -428,7 +428,7 @@ export default function CheckoutPage() {
                     type="button"
                     onClick={applyVoucher}
                     disabled={!voucherCode || !!appliedVoucher || isApplyingVoucher}
-                    className="bg-blue-600 text-white px-4 rounded-lg font-bold text-sm hover:bg-blue-700 disabled:opacity-50"
+                    className="bg-pink-600 text-white px-4 rounded-lg font-bold text-sm hover:bg-pink-700 disabled:opacity-50"
                   >
                     {isApplyingVoucher ? '...' : 'Áp dụng'}
                   </button>
@@ -473,7 +473,7 @@ export default function CheckoutPage() {
       {showQRModal ? (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
           <div className="bg-white rounded-xl shadow-2xl max-w-md w-full overflow-hidden">
-            <div className="bg-blue-600 p-4 text-white flex justify-between items-center">
+            <div className="bg-pink-600 p-4 text-white flex justify-between items-center">
               <h3 className="font-bold text-lg">Quét mã để thanh toán</h3>
               <button type="button" onClick={finishPayment} className="text-white/80 hover:text-white text-2xl">
                 ×
@@ -482,20 +482,20 @@ export default function CheckoutPage() {
             <div className="p-6 text-center space-y-4">
               <img
                 src={`https://qr.sepay.vn/img?bank=MBBank&acc=VQRQAGBEX7670&template=qronly&amount=${paymentInfo.amount}&des=${encodeURIComponent(paymentInfo.content || '')}`}
-                className="w-64 h-64 object-contain mx-auto border-2 border-blue-100 rounded-lg"
+                className="w-64 h-64 object-contain mx-auto border-2 border-pink-100 rounded-lg"
                 alt="QR"
               />
               <div className="bg-gray-50 p-4 rounded-lg text-left text-sm space-y-3 border border-gray-200">
                 <div className="flex justify-between">
                   <span>Số tiền:</span>
-                  <span className="font-bold text-blue-600">{formatPrice(paymentInfo.amount)}đ</span>
+                  <span className="font-bold text-pink-600">{formatPrice(paymentInfo.amount)}đ</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Nội dung:</span>
                   <span className="font-bold text-red-600">{paymentInfo.content}</span>
                 </div>
               </div>
-              <button type="button" onClick={finishPayment} className="w-full bg-blue-600 text-white font-bold py-3 rounded-lg">
+              <button type="button" onClick={finishPayment} className="w-full bg-pink-600 text-white font-bold py-3 rounded-lg">
                 Tôi đã thanh toán xong
               </button>
             </div>

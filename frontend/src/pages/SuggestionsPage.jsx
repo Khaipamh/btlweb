@@ -50,7 +50,7 @@ export default function SuggestionsPage({ isEmbedded = false }) {
         {!isEmbedded ? (
           <>
             <div className="text-sm text-gray-500 mb-4">
-              <Link to="/" className="hover:text-blue-600">
+              <Link to="/" className="hover:text-pink-600">
                 Trang chủ
               </Link>{' '}
               / <span className="text-gray-800 font-medium">Gợi Ý Cho Bạn</span>
@@ -99,7 +99,7 @@ export default function SuggestionsPage({ isEmbedded = false }) {
                     </div>
                   ) : null}
                 </div>
-                <h3 className="text-sm text-gray-700 font-medium line-clamp-2 mb-2 min-h-[40px] group-hover:text-blue-600 transition">
+                <h3 className="text-sm text-gray-700 font-medium line-clamp-2 mb-2 min-h-[40px] group-hover:text-pink-600 transition">
                   {book.title || book.book_title}
                 </h3>
                 <div className="text-sm text-gray-500 mb-2">{book.Author?.author_name || ''}</div>

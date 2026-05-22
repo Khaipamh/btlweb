@@ -72,7 +72,7 @@ export default function AdminLayout() {
       <Layout>
         <Header className="bg-white shadow-sm flex items-center justify-between px-6 h-16 leading-none">
           <span className="text-gray-500 font-medium">Trang quản trị hệ thống Sahafa Bookstore</span>
-          <Link to="/" className="text-blue-600 text-sm font-medium">
+          <Link to="/" className="text-pink-600 text-sm font-medium">
             Ra cửa hàng
           </Link>
         </Header>

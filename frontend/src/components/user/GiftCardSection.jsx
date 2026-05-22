@@ -48,7 +48,7 @@ export default function GiftCardSection() {
         <div className="mt-6 text-center">
           <Link
             to="/gift-card"
-            className="inline-block bg-[#2563eb] text-white px-12 py-2.5 rounded-lg font-bold shadow-md hover:bg-blue-700 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+            className="inline-block bg-[#db2777] text-white px-12 py-2.5 rounded-lg font-bold shadow-md hover:bg-pink-700 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
           >
             Xem Thêm
           </Link>

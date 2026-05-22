@@ -55,7 +55,7 @@ export default function ChatBot() {
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
       {isOpen ? (
         <div className="bg-white shadow-2xl rounded-lg w-80 h-96 flex flex-col mb-4 overflow-hidden border border-gray-200 animate-in fade-in slide-in-from-bottom-2">
-          <div className="bg-blue-600 p-3 flex justify-between items-center text-white">
+          <div className="bg-pink-600 p-3 flex justify-between items-center text-white">
             <div className="flex items-center gap-2">
               <span>💬</span>
               <span className="font-bold">Trợ lý ảo Sahafa</span>
@@ -70,7 +70,7 @@ export default function ChatBot() {
                 key={index}
                 className={`max-w-[85%] p-2 rounded-lg text-sm leading-relaxed shadow-sm ${
                   msg.isUser
-                    ? 'bg-blue-500 text-white self-end rounded-br-none'
+                    ? 'bg-pink-500 text-white self-end rounded-br-none'
                     : 'bg-white text-gray-800 self-start border border-gray-200 rounded-bl-none'
                 }`}
                 dangerouslySetInnerHTML={{ __html: formatMessage(msg.text) }}
@@ -86,13 +86,13 @@ export default function ChatBot() {
               onChange={(e) => setUserInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
               placeholder="Nhập tin nhắn..."
-              className="flex-1 border border-gray-300 rounded-full px-4 py-2 text-sm focus:outline-none focus:border-blue-500"
+              className="flex-1 border border-gray-300 rounded-full px-4 py-2 text-sm focus:outline-none focus:border-pink-500"
             />
             <button
               type="button"
               onClick={sendMessage}
               disabled={!userInput.trim() || loading}
-              className="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 disabled:opacity-50"
+              className="bg-pink-600 text-white p-2 rounded-full hover:bg-pink-700 disabled:opacity-50"
             >
               ➤
             </button>
@@ -103,7 +103,7 @@ export default function ChatBot() {
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-blue-600 hover:bg-blue-700 text-white rounded-full w-14 h-14 shadow-lg transition-all hover:scale-105 flex items-center justify-center ring-4 ring-blue-100"
+        className="bg-pink-600 hover:bg-pink-700 text-white rounded-full w-14 h-14 shadow-lg transition-all hover:scale-105 flex items-center justify-center ring-4 ring-pink-100"
       >
         {isOpen ? '✕' : '💬'}
       </button>
