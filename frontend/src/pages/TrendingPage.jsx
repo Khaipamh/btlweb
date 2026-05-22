@@ -37,7 +37,7 @@ export default function TrendingPage() {
     <div className="bg-gray-50 min-h-screen py-6">
       <div className="container mx-auto px-4">
         <div className="text-sm text-gray-500 mb-4">
-          <Link to="/" className="hover:text-blue-600">
+          <Link to="/" className="hover:text-pink-600">
             Trang chủ
           </Link>{' '}
           / <span className="text-gray-800 font-medium">Xu Hướng Mua Sắm</span>
@@ -69,7 +69,7 @@ export default function TrendingPage() {
                     <div className="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded shadow">-{book.discount}%</div>
                   ) : null}
                 </div>
-                <h3 className="text-sm text-gray-700 font-medium line-clamp-2 mb-2 min-h-[40px] group-hover:text-blue-600">{book.title}</h3>
+                <h3 className="text-sm text-gray-700 font-medium line-clamp-2 mb-2 min-h-[40px] group-hover:text-pink-600">{book.title}</h3>
                 <div className="mt-auto">
                   <div className="text-red-600 font-bold text-lg">{formatPrice(book.price)}đ</div>
                   <div className="flex items-center gap-2 mt-1">
@@ -81,7 +81,7 @@ export default function TrendingPage() {
             ))}
           </div>
         )}
-        <div className="mt-8 bg-blue-50 pt-8 pb-0 rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.2)] relative z-10">
+        <div className="mt-8 bg-pink-50 pt-8 pb-0 rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.2)] relative z-10">
           <div className="container mx-auto px-4">
             <SuggestionsPage isEmbedded />
           </div>

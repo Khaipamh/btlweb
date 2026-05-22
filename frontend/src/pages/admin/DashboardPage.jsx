@@ -57,7 +57,7 @@ export default function DashboardPage() {
           datasets: [
             {
               label: 'Doanh Thu (VND)',
-              backgroundColor: '#409EFF',
+              backgroundColor: '#ec4899',
               data: chartArr.map((item) => item.value),
             },
           ],
@@ -111,7 +111,7 @@ export default function DashboardPage() {
           {chartData.labels.length > 0 ? <Bar data={chartData} options={chartOptions} /> : <p className="text-gray-400 text-center py-20">Không có dữ liệu</p>}
         </div>
       </Card>
-      <h3 className="text-lg font-bold text-gray-700 mb-4 px-2 border-l-4 border-blue-500">Thông Tin Hệ Thống</h3>
+      <h3 className="text-lg font-bold text-gray-700 mb-4 px-2 border-l-4 border-pink-500">Thông Tin Hệ Thống</h3>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <Card size="small">Tác Giả: <strong>{stats.totalAuthors}</strong></Card>
         <Card size="small">NXB: <strong>{stats.totalPublishers}</strong></Card>

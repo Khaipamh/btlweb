@@ -68,7 +68,7 @@ export default function FlashSalePage() {
         ) : books.length === 0 ? (
           <div className="text-center py-20 bg-white rounded-lg border">
             <p className="text-gray-500 mb-4">Hiện chưa có chương trình Flash Sale.</p>
-            <Link to="/" className="text-blue-600 font-bold">
+            <Link to="/" className="text-pink-600 font-bold">
               Về trang chủ
             </Link>
           </div>

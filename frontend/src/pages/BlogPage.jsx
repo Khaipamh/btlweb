@@ -41,7 +41,7 @@ export default function BlogPage() {
       </div>
       {loading ? (
         <div className="flex justify-center py-12">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500" />
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-pink-500" />
         </div>
       ) : null}
       {error ? <div className="text-center py-12 text-red-500">{error}</div> : null}
@@ -59,13 +59,13 @@ export default function BlogPage() {
               <div className="p-4">
                 <div className="flex items-center text-xs text-gray-500 mb-2">
                   {post.Category ? (
-                    <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full mr-2">{post.Category.category_name}</span>
+                    <span className="bg-pink-100 text-pink-800 px-2 py-1 rounded-full mr-2">{post.Category.category_name}</span>
                   ) : null}
                   <span>{formatDate(post.created_at)}</span>
                 </div>
-                <h2 className="text-xl font-semibold text-gray-800 mb-2 line-clamp-2 hover:text-blue-600">{post.title}</h2>
+                <h2 className="text-xl font-semibold text-gray-800 mb-2 line-clamp-2 hover:text-pink-600">{post.title}</h2>
                 <p className="text-gray-600 text-sm line-clamp-3 mb-4">{getExcerpt(post.content)}</p>
-                <div className="text-blue-500 font-medium text-sm">Đọc tiếp →</div>
+                <div className="text-pink-500 font-medium text-sm">Đọc tiếp →</div>
               </div>
             </Link>
           ))}

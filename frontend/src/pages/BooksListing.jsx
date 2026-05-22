@@ -60,7 +60,7 @@ export default function BooksListing() {
         {!search && !category ? (
           <div className="text-center py-20 bg-white rounded-lg shadow-sm border border-gray-100">
             <p className="text-gray-500 text-lg mb-4">Nhập từ khóa tìm kiếm hoặc chọn danh mục từ trang chủ.</p>
-            <Link to="/" className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+            <Link to="/" className="bg-pink-600 text-white px-6 py-2 rounded-lg hover:bg-pink-700 transition">
               Về trang chủ
             </Link>
           </div>
@@ -80,7 +80,7 @@ export default function BooksListing() {
               alt=""
             />
             <p className="text-gray-500 text-lg mb-4">Không tìm thấy sách hoặc tác giả nào phù hợp.</p>
-            <Link to="/" className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+            <Link to="/" className="bg-pink-600 text-white px-6 py-2 rounded-lg hover:bg-pink-700 transition">
               Về trang chủ
             </Link>
           </div>

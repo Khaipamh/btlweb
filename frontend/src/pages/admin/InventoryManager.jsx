@@ -103,9 +103,9 @@ export default function InventoryManager() {
             {safeStockCount} <span className="text-sm text-gray-400">cuốn</span>
           </div>
         </Card>
-        <Card className="border-l-4 border-blue-500">
+        <Card className="border-l-4 border-pink-500">
           <div className="text-gray-500 text-xs uppercase font-bold">Tổng giá trị kho</div>
-          <div className="text-2xl font-bold text-blue-600 mt-1">{formatCurrency(totalValue)}</div>
+          <div className="text-2xl font-bold text-pink-600 mt-1">{formatCurrency(totalValue)}</div>
         </Card>
       </div>
       <Card bordered={false}>

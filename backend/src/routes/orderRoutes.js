@@ -74,6 +74,17 @@ router.post('/', orderController.createOrder);
  */
 router.get('/my-orders', orderController.getMyOrders);
 
+/**
+ * @swagger
+ * /api/orders/my-orders/{id}:
+ *   get:
+ *     summary: Chi tiết đơn hàng của người dùng hiện tại
+ *     tags: [Orders]
+ *     security:
+ *       - bearerAuth: []
+ */
+router.get('/my-orders/:id', orderController.getMyOrderById);
+
 // --- CÁC ROUTE QUẢN TRỊ ---
 
 /**

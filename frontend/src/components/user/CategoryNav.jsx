@@ -1,10 +1,15 @@
 import { useNavigate } from 'react-router-dom';
 
 const fixedItems = [
-  { name: '12.12', icon: 'https://cdn-icons-png.flaticon.com/512/3652/3652191.png', bgClass: 'bg-red-50', path: '/event-1212' },
+  {
+    name: 'Sale 6/6',
+    icon: 'https://cdn-icons-png.flaticon.com/512/869/869636.png',
+    bgClass: 'bg-yellow-50',
+    path: '/event-summer-66',
+  },
   { name: 'Gift Card', icon: 'https://cdn-icons-png.flaticon.com/512/3210/3210036.png', bgClass: 'bg-green-50', path: '/gift-card' },
   { name: 'Mã Giảm Giá', icon: 'https://cdn-icons-png.flaticon.com/512/879/879757.png', bgClass: 'bg-orange-50', path: '/vouchers' },
-  { name: 'Điểm Danh', icon: 'https://cdn-icons-png.flaticon.com/512/7518/7518748.png', bgClass: 'bg-blue-50', path: '/attendance' },
+  { name: 'Điểm Danh', icon: 'https://cdn-icons-png.flaticon.com/512/7518/7518748.png', bgClass: 'bg-pink-50', path: '/attendance' },
   { name: 'Flash Sale', icon: 'https://cdn-icons-png.flaticon.com/512/3266/3266208.png', bgClass: 'bg-yellow-50', path: '/flash-sale' },
   { name: 'Sách Mới', icon: 'https://cdn-icons-png.flaticon.com/512/1156/1156949.png', bgClass: 'bg-pink-50', path: '/new-arrivals' },
   { name: 'Sách Cũ', icon: 'https://cdn-icons-png.flaticon.com/512/2331/2331941.png', bgClass: 'bg-teal-50', path: '/second-hand' },
@@ -31,7 +36,7 @@ export default function CategoryNav() {
               >
                 <img src={item.icon} className="w-full h-full object-contain" alt="" />
               </div>
-              <span className="text-[11px] md:text-[13px] text-center text-gray-600 font-medium group-hover:text-blue-600 transition-colors leading-tight px-1 h-8 flex items-start justify-center">
+              <span className="text-[11px] md:text-[13px] text-center text-gray-600 font-medium group-hover:text-pink-600 transition-colors leading-tight px-1 h-8 flex items-start justify-center">
                 {item.name}
               </span>
             </button>

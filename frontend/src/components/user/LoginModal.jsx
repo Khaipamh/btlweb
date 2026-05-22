@@ -128,21 +128,21 @@ export default function LoginModal({ initialTab = 'login', onClose }) {
               type="button"
               onClick={() => setActiveTab('login')}
               className={`flex-1 py-4 font-bold text-center transition relative ${
-                activeTab === 'login' ? 'text-blue-600' : 'text-gray-500 hover:text-gray-700'
+                activeTab === 'login' ? 'text-pink-600' : 'text-gray-500 hover:text-gray-700'
               }`}
             >
               Đăng nhập
-              {activeTab === 'login' ? <div className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600" /> : null}
+              {activeTab === 'login' ? <div className="absolute bottom-0 left-0 w-full h-0.5 bg-pink-600" /> : null}
             </button>
             <button
               type="button"
               onClick={() => setActiveTab('register')}
               className={`flex-1 py-4 font-bold text-center transition relative ${
-                activeTab === 'register' ? 'text-blue-600' : 'text-gray-500 hover:text-gray-700'
+                activeTab === 'register' ? 'text-pink-600' : 'text-gray-500 hover:text-gray-700'
               }`}
             >
               Đăng ký
-              {activeTab === 'register' ? <div className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600" /> : null}
+              {activeTab === 'register' ? <div className="absolute bottom-0 left-0 w-full h-0.5 bg-pink-600" /> : null}
             </button>
           </div>
         ) : (
@@ -151,7 +151,7 @@ export default function LoginModal({ initialTab = 'login', onClose }) {
               <button
                 type="button"
                 onClick={() => setActiveTab('login')}
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-blue-600 text-sm flex items-center gap-1 font-normal"
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-pink-600 text-sm flex items-center gap-1 font-normal"
               >
                 ← Quay lại
               </button>
@@ -169,7 +169,7 @@ export default function LoginModal({ initialTab = 'login', onClose }) {
                   value={loginForm.email}
                   onChange={(e) => setLoginForm((f) => ({ ...f, email: e.target.value }))}
                   type="email"
-                  className="w-full border border-gray-300 rounded-md px-4 py-2 outline-none focus:border-blue-500 transition"
+                  className="w-full border border-gray-300 rounded-md px-4 py-2 outline-none focus:border-pink-500 transition"
                   required
                 />
               </div>
@@ -180,13 +180,13 @@ export default function LoginModal({ initialTab = 'login', onClose }) {
                     value={loginForm.password}
                     onChange={(e) => setLoginForm((f) => ({ ...f, password: e.target.value }))}
                     type={showPassword ? 'text' : 'password'}
-                    className="w-full border border-gray-300 rounded-md px-4 py-2 outline-none focus:border-blue-500 transition"
+                    className="w-full border border-gray-300 rounded-md px-4 py-2 outline-none focus:border-pink-500 transition"
                     required
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-blue-600"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-pink-600"
                   >
                     {showPassword ? 'Ẩn' : 'Hiện'}
                   </button>
@@ -200,7 +200,7 @@ export default function LoginModal({ initialTab = 'login', onClose }) {
               <button
                 type="submit"
                 disabled={loading}
-                className="bg-blue-600 text-white font-bold py-2.5 rounded-md hover:bg-blue-700 transition shadow-md disabled:bg-blue-300 mt-2"
+                className="bg-pink-600 text-white font-bold py-2.5 rounded-md hover:bg-pink-700 transition shadow-md disabled:bg-pink-300 mt-2"
               >
                 {loading ? 'Đang xử lý...' : 'Đăng nhập'}
               </button>
@@ -215,7 +215,7 @@ export default function LoginModal({ initialTab = 'login', onClose }) {
                   value={registerForm.full_name}
                   onChange={(e) => setRegisterForm((f) => ({ ...f, full_name: e.target.value }))}
                   type="text"
-                  className="w-full border border-gray-300 rounded-md px-4 py-2 outline-none focus:border-blue-500 transition"
+                  className="w-full border border-gray-300 rounded-md px-4 py-2 outline-none focus:border-pink-500 transition"
                   required
                 />
               </div>
@@ -225,7 +225,7 @@ export default function LoginModal({ initialTab = 'login', onClose }) {
                   value={registerForm.email}
                   onChange={(e) => setRegisterForm((f) => ({ ...f, email: e.target.value }))}
                   type="email"
-                  className="w-full border border-gray-300 rounded-md px-4 py-2 outline-none focus:border-blue-500 transition"
+                  className="w-full border border-gray-300 rounded-md px-4 py-2 outline-none focus:border-pink-500 transition"
                   required
                 />
               </div>
@@ -236,13 +236,13 @@ export default function LoginModal({ initialTab = 'login', onClose }) {
                     value={registerForm.password}
                     onChange={(e) => setRegisterForm((f) => ({ ...f, password: e.target.value }))}
                     type={showRegisterPassword ? 'text' : 'password'}
-                    className="w-full border border-gray-300 rounded-md px-4 py-2 outline-none focus:border-blue-500 transition"
+                    className="w-full border border-gray-300 rounded-md px-4 py-2 outline-none focus:border-pink-500 transition"
                     required
                   />
                   <button
                     type="button"
                     onClick={() => setShowRegisterPassword(!showRegisterPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-blue-600"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-pink-600"
                   >
                     {showRegisterPassword ? 'Ẩn' : 'Hiện'}
                   </button>
@@ -251,7 +251,7 @@ export default function LoginModal({ initialTab = 'login', onClose }) {
               <button
                 type="submit"
                 disabled={loading}
-                className="bg-blue-600 text-white font-bold py-2.5 rounded-md hover:bg-blue-700 transition shadow-md disabled:bg-blue-300 mt-2"
+                className="bg-pink-600 text-white font-bold py-2.5 rounded-md hover:bg-pink-700 transition shadow-md disabled:bg-pink-300 mt-2"
               >
                 {loading ? 'Đang tạo tài khoản...' : 'Đăng ký'}
               </button>
@@ -271,7 +271,7 @@ export default function LoginModal({ initialTab = 'login', onClose }) {
                       value={forgotEmail}
                       onChange={(e) => setForgotEmail(e.target.value)}
                       type="email"
-                      className="w-full border border-gray-300 rounded-md px-4 py-2 outline-none focus:border-blue-500 transition"
+                      className="w-full border border-gray-300 rounded-md px-4 py-2 outline-none focus:border-pink-500 transition"
                       required
                     />
                   </div>
@@ -294,7 +294,7 @@ export default function LoginModal({ initialTab = 'login', onClose }) {
                   <button
                     type="button"
                     onClick={autoLoginWithNewPassword}
-                    className="w-full bg-blue-600 text-white font-bold py-2.5 rounded-md hover:bg-blue-700 transition shadow-md mt-2"
+                    className="w-full bg-pink-600 text-white font-bold py-2.5 rounded-md hover:bg-pink-700 transition shadow-md mt-2"
                   >
                     Đăng Nhập Ngay
                   </button>

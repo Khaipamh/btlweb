@@ -28,7 +28,7 @@ export default function BookCard({ book, className = '', asStatic = false }) {
         ) : null}
       </div>
       <div className="flex flex-col flex-1 gap-1">
-        <h3 className="text-[14px] leading-snug text-gray-800 line-clamp-2 min-h-[40px] group-hover:text-blue-600 transition-colors font-medium">
+        <h3 className="text-[14px] leading-snug text-gray-800 line-clamp-2 min-h-[40px] group-hover:text-pink-600 transition-colors font-medium">
           {book.title}
         </h3>
         <div className="mt-auto flex flex-col gap-1">

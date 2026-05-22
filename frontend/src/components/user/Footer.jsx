@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm text-gray-600">
           <div>
-            <div className="text-3xl font-bold text-blue-600 mb-4 tracking-tighter flex items-center">
+            <div className="text-3xl font-bold text-pink-600 mb-4 tracking-tighter flex items-center">
               Sahafa<span className="text-yellow-400">.com</span>
             </div>
             <div className="space-y-3">
@@ -25,32 +25,32 @@ export default function Footer() {
             <h3 className="font-bold text-gray-800 uppercase mb-4 text-base">DỊCH VỤ</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/policy/dieu-khoan-su-dung" className="hover:text-blue-600 transition">
+                <Link to="/policy/dieu-khoan-su-dung" className="hover:text-pink-600 transition">
                   Điều khoản sử dụng
                 </Link>
               </li>
               <li>
-                <Link to="/policy/chinh-sach-bao-mat" className="hover:text-blue-600 transition">
+                <Link to="/policy/chinh-sach-bao-mat" className="hover:text-pink-600 transition">
                   Chính sách bảo mật thông tin cá nhân
                 </Link>
               </li>
               <li>
-                <Link to="/policy/bao-mat-thanh-toan" className="hover:text-blue-600 transition">
+                <Link to="/policy/bao-mat-thanh-toan" className="hover:text-pink-600 transition">
                   Chính sách bảo mật thanh toán
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-blue-600 transition">
+                <Link to="/about" className="hover:text-pink-600 transition">
                   Giới thiệu Sahafa
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="hover:text-blue-600 transition">
+                <Link to="/blog" className="hover:text-pink-600 transition">
                   Tin tức & Sự kiện (Blog)
                 </Link>
               </li>
               <li>
-                <Link to="/store-system" className="hover:text-blue-600 transition">
+                <Link to="/store-system" className="hover:text-pink-600 transition">
                   Hệ thống nhà sách
                 </Link>
               </li>
@@ -64,19 +64,25 @@ export default function Footer() {
                 <button
                   type="button"
                   onClick={() => openLoginModal('login')}
-                  className="hover:text-blue-600 transition cursor-pointer text-left bg-transparent border-0 p-0 text-sm text-gray-600"
+                  className="hover:text-pink-600 transition cursor-pointer text-left bg-transparent border-0 p-0 text-sm text-gray-600"
                 >
                   Đăng nhập / Tạo mới tài khoản
                 </button>
               </li>
               <li>
-                <span className="hover:text-blue-600 transition cursor-pointer">Thay đổi địa chỉ khách hàng</span>
+                <Link to="/user/profile?tab=address" className="hover:text-pink-600 transition">
+                  Thay đổi địa chỉ khách hàng
+                </Link>
               </li>
               <li>
-                <span className="hover:text-blue-600 transition cursor-pointer">Chi tiết tài khoản</span>
+                <Link to="/user/profile?tab=profile" className="hover:text-pink-600 transition">
+                  Chi tiết tài khoản
+                </Link>
               </li>
               <li>
-                <span className="hover:text-blue-600 transition cursor-pointer">Lịch sử mua hàng</span>
+                <Link to="/user/orders" className="hover:text-pink-600 transition">
+                  Lịch sử mua hàng
+                </Link>
               </li>
             </ul>
 

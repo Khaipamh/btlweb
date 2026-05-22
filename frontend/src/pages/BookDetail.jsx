@@ -132,7 +132,7 @@ export default function BookDetail() {
                   <span className="text-gray-400">|</span>
                   <span className="text-gray-500">Đã bán {book.total_sold || 0}</span>
                   <span className="text-gray-400">|</span>
-                  <span className="text-blue-600 font-medium">{book.stock_quantity > 0 ? 'Còn hàng' : 'Hết hàng'}</span>
+                  <span className="text-pink-600 font-medium">{book.stock_quantity > 0 ? 'Còn hàng' : 'Hết hàng'}</span>
                 </div>
                 <div className="bg-gray-50 p-4 rounded-lg flex items-end gap-3 mt-2">
                   <span className="text-3xl font-bold text-[#C92127]">{formatPrice(book.price)} đ</span>
@@ -141,7 +141,7 @@ export default function BookDetail() {
                   <div>Mã sản phẩm</div>
                   <div className="font-medium text-black">SP{book.book_id}</div>
                   <div>Tác giả</div>
-                  <div className="font-medium text-blue-600">{book.Author?.author_name || 'Đang cập nhật'}</div>
+                  <div className="font-medium text-pink-600">{book.Author?.author_name || 'Đang cập nhật'}</div>
                   <div>Nhà xuất bản</div>
                   <div className="font-medium text-black">{book.Publisher?.publisher_name || 'Đang cập nhật'}</div>
                 </div>
@@ -202,7 +202,7 @@ export default function BookDetail() {
         {!isLoading && !book ? (
           <div className="text-center py-20 bg-white rounded-lg">
             <p className="text-gray-500 mb-4 text-lg">Không tìm thấy sách này.</p>
-            <Link to="/" className="text-blue-600 hover:underline font-medium">
+            <Link to="/" className="text-pink-600 hover:underline font-medium">
               Quay lại trang chủ
             </Link>
           </div>

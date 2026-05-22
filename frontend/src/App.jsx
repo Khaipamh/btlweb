@@ -5,7 +5,7 @@ import AdminLayout from '@/layouts/AdminLayout';
 import { useAuthStore } from '@/stores/authStore';
 
 import Home from '@/pages/Home';
-import Event1212 from '@/pages/event/Event1212';
+import EventSummerSale from '@/pages/event/EventSummerSale';
 import Cart from '@/pages/Cart';
 import CheckoutPage from '@/pages/CheckoutPage';
 import TrendingPage from '@/pages/TrendingPage';
@@ -25,6 +25,7 @@ import CategoryDetail from '@/pages/CategoryDetail';
 import About from '@/pages/About';
 import StoreSystem from '@/pages/StoreSystem';
 import UserProfile from '@/pages/UserProfile';
+import OrderHistoryPage from '@/pages/OrderHistoryPage';
 import BlogPage from '@/pages/BlogPage';
 import PostDetail from '@/pages/PostDetail';
 import Login from '@/pages/Login';
@@ -59,7 +60,8 @@ export default function App() {
     <Routes>
       <Route path="/" element={<UserLayout />}>
         <Route index element={<Home />} />
-        <Route path="event-1212" element={<Event1212 />} />
+        <Route path="event-summer-66" element={<EventSummerSale />} />
+        <Route path="event-1212" element={<Navigate to="/event-summer-66" replace />} />
         <Route path="cart" element={<Cart />} />
         <Route path="checkout" element={<CheckoutPage />} />
         <Route path="trending" element={<TrendingPage />} />
@@ -79,6 +81,7 @@ export default function App() {
         <Route path="about" element={<About />} />
         <Route path="store-system" element={<StoreSystem />} />
         <Route path="user/profile" element={<UserProfile />} />
+        <Route path="user/orders" element={<OrderHistoryPage />} />
         <Route path="blog" element={<BlogPage />} />
         <Route path="blog/:slug" element={<PostDetail />} />
         <Route path="news/:slug" element={<PostDetail />} />

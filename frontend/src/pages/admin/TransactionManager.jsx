@@ -174,7 +174,7 @@ export default function TransactionManager() {
               align: 'center',
               render: (_, row) => {
                 const m = row.payment_method;
-                if (m === 'bank_transfer') return <Tag color="blue">Chuyển khoản</Tag>;
+                if (m === 'bank_transfer') return <Tag color="magenta">Chuyển khoản</Tag>;
                 if (m === 'COD' || m === 'cod') return <Tag color="orange">COD</Tag>;
                 return <Tag>{m}</Tag>;
               },

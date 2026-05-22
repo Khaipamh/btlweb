@@ -7,9 +7,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#1F5EFF',       // Xanh chủ đạo
-        'primary-dark': '#1040B0',
-        'primary-light': '#E8F0FF',
+        primary: '#db2777',       // Hồng chủ đạo
+        'primary-dark': '#be185d',
+        'primary-light': '#fdf2f8',
       }
     },
   },

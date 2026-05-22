@@ -22,7 +22,7 @@ const getRoleColor = (role) => {
     case 'employee':
       return 'orange';
     default:
-      return 'blue';
+      return 'magenta';
   }
 };
 

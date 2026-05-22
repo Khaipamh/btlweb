@@ -2,10 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import api from '@/services/api';
 import banner1 from '@/assets/banners/SAHAFA_BOOKSTORE.png';
-import banner2 from '@/assets/banners/SAHAFA_SALE.png';
-import banner3 from '@/assets/banners/MERRY_CHRISTMAS.png';
-import sideBanner1 from '@/assets/banners/SAHAFA.COM.png';
-import sideBanner2 from '@/assets/banners/promo1.jpg';
+import { EVENT_BANNERS } from '@/constants/eventBanners';
 import CategoryNav from '@/components/user/CategoryNav';
 import GiftCardSection from '@/components/user/GiftCardSection';
 import BookListSection from '@/components/user/BookListSection';
@@ -41,7 +38,18 @@ export default function Home() {
   const [bestSellers, setBestSellers] = useState([]);
   const [trendingBooks, setTrendingBooks] = useState([]);
   const [newBooks, setNewBooks] = useState([]);
-  const bannerImages = [banner1, banner2, banner3];
+  const bannerImages = [
+    banner1,
+    EVENT_BANNERS.summerSale66,
+    EVENT_BANNERS.childrenDay16,
+    EVENT_BANNERS.summerBooksSale,
+  ];
+  const bannerAlts = [
+    'Sahafa Bookstore',
+    'Siêu sale mùa hè 6/6',
+    'Ưu đãi Quốc tế Thiếu nhi 1/6',
+    'Sale sách mùa hè',
+  ];
 
   useEffect(() => {
     (async () => {
@@ -74,7 +82,7 @@ export default function Home() {
             >
               {bannerImages.map((banner, index) => (
                 <div key={index} className="min-w-full h-full">
-                  <img src={banner} className="w-full h-full object-cover" alt="Banner" />
+                  <img src={banner} className="w-full h-full object-cover" alt={bannerAlts[index] || 'Banner sự kiện'} />
                 </div>
               ))}
             </div>
@@ -108,19 +116,25 @@ export default function Home() {
           </div>
 
           <div className="col-span-12 lg:col-span-4 flex flex-col gap-4 h-auto lg:h-[320px]">
-            <Link to="/about" className="h-[150px] lg:h-1/2 rounded-2xl overflow-hidden shadow-md group block relative">
+            <Link to="/event-summer-66" className="h-[150px] lg:h-1/2 rounded-2xl overflow-hidden shadow-md group block relative">
               <img
-                src={sideBanner1}
+                src={EVENT_BANNERS.childrenDay16}
                 className="w-full h-full object-cover group-hover:scale-105 transition duration-500 cursor-pointer"
-                alt="Giới thiệu"
+                alt="Sự kiện 1/6 — Quốc tế Thiếu nhi"
               />
+              <span className="absolute bottom-2 left-3 bg-pink-600/90 text-white text-xs font-bold px-2 py-1 rounded">
+                Sale 1/6
+              </span>
             </Link>
-            <Link to="/blog" className="h-[150px] lg:h-1/2 rounded-2xl overflow-hidden shadow-md group block relative">
+            <Link to="/event-summer-66" className="h-[150px] lg:h-1/2 rounded-2xl overflow-hidden shadow-md group block relative">
               <img
-                src={sideBanner2}
+                src={EVENT_BANNERS.sidePromo66}
                 className="w-full h-full object-cover group-hover:scale-105 transition duration-500 cursor-pointer"
-                alt="Blog"
+                alt="Siêu sale 6/6 mùa hè"
               />
+              <span className="absolute bottom-2 left-3 bg-orange-500/90 text-white text-xs font-bold px-2 py-1 rounded">
+                Sale 6/6
+              </span>
             </Link>
           </div>
         </div>
@@ -147,7 +161,7 @@ export default function Home() {
                 />
               </div>
               <div className="flex-1 flex flex-col">
-                <h4 className="font-bold text-gray-800 text-sm line-clamp-2 mb-1 group-hover:text-blue-600 transition">
+                <h4 className="font-bold text-gray-800 text-sm line-clamp-2 mb-1 group-hover:text-pink-600 transition">
                   {book.title}
                 </h4>
                 <div className="mt-auto flex items-end justify-between">
@@ -182,7 +196,7 @@ export default function Home() {
         <BookListSection title="Sách Mới Tuyển Chọn" books={newBooks} seeMoreLink="/new-arrivals" />
       ) : null}
 
-      <div className="mt-8 bg-blue-50 pt-8 pb-0 rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.2)] relative z-10">
+      <div className="mt-8 bg-pink-50 pt-8 pb-0 rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.2)] relative z-10">
         <div className="container mx-auto px-4">
           <SuggestionsPage isEmbedded />
         </div>
