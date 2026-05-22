@@ -79,27 +79,27 @@ export default function LoginModal({ initialTab = 'login', onClose }) {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9])/;
     if (registerForm.password.length < 8) {
       message.warning('Mật khẩu phải có ít nhất 8 ký tự');
       return;
     }
     if (!passwordRegex.test(registerForm.password)) {
-      message.warning('Mật khẩu phải chứa chữ hoa, thường, số và ký tự đặc biệt');
+      message.warning('Mật khẩu cần chữ hoa, chữ thường, số và ký tự đặc biệt (vd: Abc12345!)');
       return;
     }
     setLoading(true);
     try {
       const success = await register(registerForm);
+      const errMsg = useAuthStore.getState().error;
       if (success) {
-        message.success('Đăng ký thành công! Vui lòng đăng nhập.');
-        setActiveTab('login');
-        setLoginForm((f) => ({ ...f, email: registerForm.email, password: '' }));
+        message.success('Đăng ký và đăng nhập thành công!');
+        handleClose();
       } else {
-        message.error(authError || 'Đăng ký thất bại');
+        message.error(errMsg || authError || 'Đăng ký thất bại');
       }
     } catch {
-      message.error('Lỗi kết nối server');
+      message.error('Lỗi kết nối server. Kiểm tra backend đang chạy tại cổng 3000.');
     } finally {
       setLoading(false);
     }
@@ -247,6 +247,9 @@ export default function LoginModal({ initialTab = 'login', onClose }) {
                     {showRegisterPassword ? 'Ẩn' : 'Hiện'}
                   </button>
                 </div>
+                <p className="text-xs text-gray-500 mt-1">
+                  Ít nhất 8 ký tự, gồm chữ hoa, chữ thường, số và ký tự đặc biệt (vd: <strong>Abc12345!</strong>)
+                </p>
               </div>
               <button
                 type="submit"

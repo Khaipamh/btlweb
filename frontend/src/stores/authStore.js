@@ -44,12 +44,27 @@ export const useAuthStore = create((set) => ({
   register: async (userData) => {
     set({ isLoading: true, error: null });
     try {
-      await api.post('/api/auth/register', userData);
+      const res = await api.post('/api/auth/register', userData);
+      if (res?.success === false) {
+        set({
+          error: res.message || 'Đăng ký thất bại',
+          isLoading: false,
+        });
+        return false;
+      }
+      const loggedIn = await useAuthStore.getState().login(userData.email, userData.password);
       set({ isLoading: false });
-      return true;
+      if (!loggedIn) {
+        set({ error: useAuthStore.getState().error || 'Đăng ký xong nhưng đăng nhập thất bại' });
+      }
+      return loggedIn;
     } catch (err) {
+      const msg =
+        err.response?.data?.message ||
+        (err.code === 'ERR_NETWORK' ? 'Không kết nối được máy chủ. Hãy chạy backend (cổng 3000).' : null) ||
+        'Đăng ký thất bại';
       set({
-        error: err.response?.data?.message || 'Đăng ký thất bại',
+        error: msg,
         isLoading: false,
       });
       return false;

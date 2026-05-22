@@ -23,11 +23,11 @@ const register = async (req, res) => {
             }),
             password: Joi.string()
                 .min(8)
-                .pattern(new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])'))
+                .pattern(new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9])'))
                 .required()
                 .messages({
                     'string.min': 'Mật khẩu phải có ít nhất 8 ký tự',
-                    'string.pattern.base': 'Mật khẩu phải có chữ hoa, thường, số và ký tự đặc biệt',
+                    'string.pattern.base': 'Mật khẩu phải có chữ hoa, chữ thường, số và ký tự đặc biệt (vd: @ # _ -)',
                     'any.required': 'Vui lòng nhập mật khẩu'
                 })
         });
@@ -49,8 +49,10 @@ const register = async (req, res) => {
             role: 'customer'
         });
 
-        // Tạo giỏ hàng trống
-        await Cart.create({ user_id: newUser.user_id });
+        await Cart.findOrCreate({
+            where: { user_id: newUser.user_id },
+            defaults: { user_id: newUser.user_id },
+        });
 
         res.status(201).json({ success: true, message: 'Đăng ký thành công!' });
 

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useCartStore } from '@/stores/cartStore';
 import { cartTotalPrice } from '@/utils/cartTotals';
 import api from '@/services/api';
+import { getPaymentQrImageUrl } from '@/constants/paymentConfig';
 
 const formatPrice = (value) => new Intl.NumberFormat('vi-VN').format(value);
 
@@ -197,12 +198,11 @@ export default function CheckoutPage() {
 
       if (res) {
         if (['sepay', 'bank_transfer'].includes(form.payment)) {
-          setPaymentInfo(
-            res.payment_info || {
-              amount: res.final_amount,
-              content: `SAHAFA${res.order_id}`,
-            }
-          );
+          const info = res.payment_info || {};
+          setPaymentInfo({
+            amount: info.amount ?? res.final_amount,
+            content: info.content || `SAHAFA ${res.order_id}`,
+          });
           setShowQRModal(true);
         } else {
           alert('Đặt hàng thành công! Cảm ơn bạn đã mua sắm.');
@@ -481,9 +481,9 @@ export default function CheckoutPage() {
             </div>
             <div className="p-6 text-center space-y-4">
               <img
-                src={`https://qr.sepay.vn/img?bank=MBBank&acc=VQRQAGBEX7670&template=qronly&amount=${paymentInfo.amount}&des=${encodeURIComponent(paymentInfo.content || '')}`}
+                src={getPaymentQrImageUrl(paymentInfo)}
                 className="w-64 h-64 object-contain mx-auto border-2 border-pink-100 rounded-lg"
-                alt="QR"
+                alt="Mã QR thanh toán"
               />
               <div className="bg-gray-50 p-4 rounded-lg text-left text-sm space-y-3 border border-gray-200">
                 <div className="flex justify-between">
