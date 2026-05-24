@@ -45,7 +45,7 @@ export default function Home() {
     EVENT_BANNERS.summerBooksSale,
   ];
   const bannerAlts = [
-    'Sahafa Bookstore',
+    'Poiseidon Bookstore',
     'Siêu sale mùa hè 6/6',
     'Ưu đãi Quốc tế Thiếu nhi 1/6',
     'Sale sách mùa hè',

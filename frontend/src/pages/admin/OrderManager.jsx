@@ -147,7 +147,7 @@ export default function OrderManager() {
         <html>
         <head><title>Hóa Đơn #${order.order_id}</title></head>
         <body style="font-family: sans-serif; padding: 20px;">
-            <h1 style="text-align:center">Nhà Sách Sahafa</h1>
+            <h1 style="text-align:center">Nhà Sách Poiseidon</h1>
             <p style="text-align:center">Mã Đơn #${order.order_id} — ${new Date(order.created_at).toLocaleString('vi-VN')}</p>
             <table style="width:100%; border-collapse:collapse; margin-top:16px">
                 <thead><tr><th>Sản phẩm</th><th>SL</th><th>Đơn giá</th><th>Thành tiền</th></tr></thead>

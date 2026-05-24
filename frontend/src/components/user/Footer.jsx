@@ -10,13 +10,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm text-gray-600">
           <div>
             <div className="text-3xl font-bold text-pink-600 mb-4 tracking-tighter flex items-center">
-              Sahafa<span className="text-yellow-400">.com</span>
+              Poiseidon<span className="text-yellow-400">.com</span>
             </div>
             <div className="space-y-3">
-              <p className="font-bold text-gray-800 uppercase">Công Ty Cổ Phần Phát Hành Sách Sahafa</p>
+              <p className="font-bold text-gray-800 uppercase">Công Ty Cổ Phần Phát Hành Sách Poiseidon</p>
               <p>Địa chỉ: Hà Nội</p>
               <p className="leading-relaxed">
-                Sahafa.com nhận đặt hàng trực tuyến và giao hàng tận nơi. KHÔNG hỗ trợ đặt mua và nhận hàng trực tiếp tại văn phòng.
+                Poiseidon.com nhận đặt hàng trực tuyến và giao hàng tận nơi. KHÔNG hỗ trợ đặt mua và nhận hàng trực tiếp tại văn phòng.
               </p>
             </div>
           </div>
@@ -41,7 +41,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link to="/about" className="hover:text-pink-600 transition">
-                  Giới thiệu Sahafa
+                  Giới thiệu Poiseidon
                 </Link>
               </li>
               <li>
@@ -92,7 +92,7 @@ export default function Footer() {
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                cskh@sahafa.dungcan.id.vn
+                cskh@poiseidon.dungcan.id.vn
               </p>
               <p className="flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -108,7 +108,7 @@ export default function Footer() {
           <p className="text-gray-400 text-xs mb-1">
             Giấy chứng nhận Đăng ký Kinh doanh số 0123456789 do Sở Kế hoạch và Đầu tư Thành phố Hà Nội cấp ngày 20/12/2025
           </p>
-          <p className="text-gray-500 text-xs font-medium">&copy; 2025 Sahafa.com - All Rights Reserved</p>
+          <p className="text-gray-500 text-xs font-medium">&copy; 2025 Poiseidon.com - All Rights Reserved</p>
         </div>
       </div>
     </footer>

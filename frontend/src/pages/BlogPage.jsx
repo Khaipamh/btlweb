@@ -36,7 +36,7 @@ export default function BlogPage() {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8 text-center">
-        <h1 className="text-3xl font-bold text-gray-800 mb-2">Sahafa Blog</h1>
+        <h1 className="text-3xl font-bold text-gray-800 mb-2">Poiseidon Blog</h1>
         <p className="text-gray-600">Cập nhật tin tức, review sách và khuyến mãi mới nhất</p>
       </div>
       {loading ? (

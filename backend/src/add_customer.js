@@ -10,7 +10,7 @@ const createLoginAccountOnly = async () => {
         await sequelize.authenticate();
         await sequelize.sync(); // Giữ nguyên data khác
 
-        const email = 'user_only@sahafa.com'; // Email bạn muốn dùng
+        const email = 'user_only@poiseidon.com'; // Email bạn muốn dùng
 
         // --- BƯỚC 1: DỌN DẸP DỮ LIỆU CŨ (User + Địa chỉ + Giỏ hàng) ---
         const oldUser = await User.findOne({ where: { email } });

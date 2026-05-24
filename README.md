@@ -3,7 +3,7 @@
 ![Node](https://img.shields.io/badge/Node-18%2B-green)
 ![Vue](https://img.shields.io/badge/Vue-3-green)
 
-# Sahafa BookStore - E-Commerce Platform
+# Poiseidon BookStore - E-Commerce Platform
 
 E-commerce website for selling books built with Vue 3, Express.js, MySQL, featuring an Admin Dashboard and AI Chatbot.
 
@@ -150,7 +150,7 @@ E-commerce website for selling books built with Vue 3, Express.js, MySQL, featur
 
 ## Project Structure
 ```
-SahafaBookStore/
+PoiseidonBookStore/
 ├── backend/                 # Express.js API server
 │   ├── src/
 │   │   ├── config/         # Database, constants, swagger
@@ -200,8 +200,8 @@ Fastest way to get the project up and running without installing dependencies ma
 
 1. **Clone the Repository**
 ```bash
-git clone https://github.com/dungcan2k5/SahafaBookStore.git
-cd SahafaBookStore
+git clone https://github.com/dungcan2k5/PoiseidonBookStore.git
+cd PoiseidonBookStore
 ```
 
 2. **Setup Environment Variables**
@@ -233,8 +233,8 @@ Suitable for development or if you don't use Docker.
 
 1. **Clone & Install Dependencies**
 ```bash
-git clone https://github.com/dungcan2k5/SahafaBookStore.git
-cd SahafaBookStore
+git clone https://github.com/dungcan2k5/PoiseidonBookStore.git
+cd PoiseidonBookStore
 
 # Backend
 cd backend
@@ -278,7 +278,7 @@ npm run dev
 
 Base URL
 - Local: http://localhost:3000/api/docs
-- Production: https://sahafa.dungcan.id.vn/api/docs
+- Production: https://poiseidon.dungcan.id.vn/api/docs
 
 Authentication
 Authorization: Bearer <JWT_TOKEN>

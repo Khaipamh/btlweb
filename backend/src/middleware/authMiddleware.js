@@ -12,7 +12,7 @@ const verifyToken = (req, res, next) => {
 
     try {
         // Giải mã token
-        const decoded = jwt.verify(token, process.env.JWT_SECRET || 'sahafa_secret_key');
+        const decoded = jwt.verify(token, process.env.JWT_SECRET || 'poiseidon_secret_key');
         req.user_id = decoded.user_id; // Lưu user_id vào request để dùng ở controller sau
         req.user_role = decoded.role;
         next(); // Cho phép đi tiếp

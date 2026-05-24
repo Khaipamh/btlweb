@@ -252,7 +252,7 @@ export default function PostManager() {
         <div className="mt-3">
           <div className="mb-1 text-sm">Slug</div>
           <Input
-            addonBefore="sahafa.com/news/"
+            addonBefore="poiseidon.com/news/"
             value={form.post_slug}
             onChange={(e) => setForm((f) => ({ ...f, post_slug: e.target.value }))}
           />

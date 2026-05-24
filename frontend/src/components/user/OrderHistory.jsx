@@ -80,7 +80,7 @@ export default function OrderHistory({ embedded = false }) {
   return (
     <div className={embedded ? '' : 'space-y-6'}>
       {!embedded ? (
-        <p className="text-gray-500 text-sm">Theo dõi trạng thái và chi tiết các đơn hàng bạn đã đặt tại Sahafa.</p>
+        <p className="text-gray-500 text-sm">Theo dõi trạng thái và chi tiết các đơn hàng bạn đã đặt tại Poiseidon.</p>
       ) : null}
 
       <div className="flex flex-wrap gap-2 mb-4">

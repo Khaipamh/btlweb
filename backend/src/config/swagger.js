@@ -6,9 +6,9 @@ const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'API Sahafa Bookstore',
+      title: 'API Poiseidon Bookstore',
       version: '1.0.0',
-      description: 'Tài liệu API cho dự án Sahafa Bookstore',
+      description: 'Tài liệu API cho dự án Poiseidon Bookstore',
     },
     servers: [
       {
