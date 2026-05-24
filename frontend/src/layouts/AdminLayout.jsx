@@ -64,7 +64,7 @@ export default function AdminLayout() {
       <Sider width={220} theme="dark" className="shadow-xl">
         <div className="h-16 flex items-center justify-center border-b border-gray-700 bg-[#002140] shrink-0">
           <span className="text-xl font-bold tracking-wider text-white">
-            SAHAFA <span className="text-yellow-400">ADMIN</span>
+            POISEIDON <span className="text-yellow-400">ADMIN</span>
           </span>
         </div>
         <Menu theme="dark" mode="inline" selectedKeys={selectedKey} defaultOpenKeys={['products', 'sales']} items={items} />

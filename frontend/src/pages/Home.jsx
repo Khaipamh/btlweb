@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import api from '@/services/api';
-import banner1 from '@/assets/banners/SAHAFA_BOOKSTORE.png';
+import banner1 from '@/assets/banners/POISEIDON_Bookstore.png';
 import { EVENT_BANNERS } from '@/constants/eventBanners';
 import CategoryNav from '@/components/user/CategoryNav';
 import GiftCardSection from '@/components/user/GiftCardSection';
