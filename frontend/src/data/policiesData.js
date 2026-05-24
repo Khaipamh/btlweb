@@ -5,7 +5,7 @@ export const policiesData = {
     updatedAt: '01/12/2025',
     content:
       '<p>Chào mừng quý khách đến mua sắm tại SAHAFA. Khi sử dụng website, quý khách đồng ý tuân thủ các quy định của SAHAFA.</p>' +
-      '<p>Mọi thắc mắc vui lòng liên hệ <strong>1900636469</strong> hoặc <strong>cskh@sahafa.dungcan.id.vn</strong>.</p>',
+      '<p>Mọi thắc mắc vui lòng liên hệ <strong>1900636469</strong> hoặc <strong>cskh@poiseidon.dungcan.id.vn</strong>.</p>',
   },
   'chinh-sach-bao-mat': {
     title: 'CHÍNH SÁCH BẢO MẬT DỮ LIỆU CÁ NHÂN',

@@ -62,7 +62,7 @@ app.use('/api/chat', chatRoutes)
 app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.get('/', (req, res) => {
-  res.json({ message: 'Backend Sahafa đã sẵn sàng!' });
+  res.json({ message: 'Backend Poiseidon đã sẵn sàng!' });
 });
 
 app.listen(PORT, () => {

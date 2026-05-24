@@ -308,7 +308,7 @@ export default function LoginModal({ initialTab = 'login', onClose }) {
 
           {activeTab !== 'forgot' || !tempPasswordResult ? (
             <div className="mt-6 text-center text-xs text-gray-500">
-              Bằng việc tiếp tục, bạn đồng ý với Điều khoản sử dụng và Chính sách bảo mật của Sahafa.
+              Bằng việc tiếp tục, bạn đồng ý với Điều khoản sử dụng và Chính sách bảo mật của Poiseidon.
             </div>
           ) : null}
         </div>

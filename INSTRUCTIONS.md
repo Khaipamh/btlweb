@@ -1,8 +1,8 @@
-# INSTRUCTIONS - Development Guide for Sahafa BookStore
+# INSTRUCTIONS - Development Guide for Poiseidon BookStore
 
 ## 1. Project Overview
 
-Project Name: Sahafa BookStore - E-Commerce Book Platform
+Project Name: Poiseidon BookStore - E-Commerce Book Platform
 Goal: Build a complete online book sales platform with admin management and user experience similar to major e-commerce sites.
 
 ---

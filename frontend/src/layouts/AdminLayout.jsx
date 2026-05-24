@@ -71,7 +71,7 @@ export default function AdminLayout() {
       </Sider>
       <Layout>
         <Header className="bg-white shadow-sm flex items-center justify-between px-6 h-16 leading-none">
-          <span className="text-gray-500 font-medium">Trang quản trị hệ thống Sahafa Bookstore</span>
+          <span className="text-gray-500 font-medium">Trang quản trị hệ thống Poiseidon Bookstore</span>
           <Link to="/" className="text-pink-600 text-sm font-medium">
             Ra cửa hàng
           </Link>

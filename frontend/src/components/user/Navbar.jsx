@@ -86,7 +86,7 @@ export default function Navbar() {
         <div className="container mx-auto flex items-center justify-between px-4 lg:px-8 gap-6">
           <div className="flex items-center gap-6 shrink-0">
             <Link to="/" className="text-2xl font-extrabold tracking-tighter flex items-center italic">
-              Sahafa<span className="text-yellow-400" />
+              Poiseidon<span className="text-yellow-400" />
             </Link>
 
             <div className="relative group z-50">

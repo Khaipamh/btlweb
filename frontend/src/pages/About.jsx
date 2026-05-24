@@ -5,20 +5,20 @@ export default function About() {
         <div className="bg-white rounded-2xl shadow-sm overflow-hidden mb-8">
           <div className="md:flex">
             <div className="md:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
-              <h1 className="text-3xl md:text-4xl font-bold text-pink-600 mb-4">Về Sahafa Bookstore</h1>
+              <h1 className="text-3xl md:text-4xl font-bold text-pink-600 mb-4">Về Poiseidon Bookstore</h1>
               <div className="w-20 h-1 bg-yellow-400 mb-6" />
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
                 &quot;Sách là ngọn đèn sáng bất diệt của trí tuệ con người.&quot;
               </p>
               <p className="text-gray-600 leading-relaxed text-justify">
-                Thành lập năm 2024, Sahafa.com mang trong mình sứ mệnh lan tỏa văn hóa đọc đến với thế hệ trẻ Việt Nam. Chúng tôi không chỉ bán sách, chúng tôi trao gửi tri thức và những giấc mơ.
+                Thành lập năm 2024, Poiseidon.com mang trong mình sứ mệnh lan tỏa văn hóa đọc đến với thế hệ trẻ Việt Nam. Chúng tôi không chỉ bán sách, chúng tôi trao gửi tri thức và những giấc mơ.
               </p>
             </div>
             <div className="md:w-1/2 bg-pink-100 h-64 md:h-auto relative min-h-[280px]">
               <img
                 src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
                 className="absolute inset-0 w-full h-full object-cover"
-                alt="About Sahafa"
+                alt="About Poiseidon"
               />
             </div>
           </div>

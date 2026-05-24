@@ -59,7 +59,7 @@ export default function SuggestionsPage({ isEmbedded = false }) {
               <div className="animate-pulse text-4xl">💡</div>
               <div>
                 <h1 className="text-3xl font-bold uppercase">Gợi Ý Cho Bạn</h1>
-                <p className="text-green-100 text-base mt-2">Những cuốn sách được gợi ý dựa trên sở thích của bạn tại Sahafa</p>
+                <p className="text-green-100 text-base mt-2">Những cuốn sách được gợi ý dựa trên sở thích của bạn tại Poiseidon</p>
               </div>
             </div>
           </>

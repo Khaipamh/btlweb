@@ -46,7 +46,7 @@ export default function TrendingPage() {
           <div className="bg-red-500 p-3 rounded-full text-white shadow-md text-2xl">📈</div>
           <div>
             <h1 className="text-2xl font-bold text-gray-800 uppercase">Xu Hướng Mua Sắm</h1>
-            <p className="text-gray-600 text-sm mt-1">Top những cuốn sách bán chạy nhất tuần qua tại Sahafa</p>
+            <p className="text-gray-600 text-sm mt-1">Top những cuốn sách bán chạy nhất tuần qua tại Poiseidon</p>
           </div>
         </div>
         {loading ? (

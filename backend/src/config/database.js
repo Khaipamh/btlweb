@@ -5,7 +5,7 @@ const path = require("path");
 // 1. Khởi tạo Sequelize
 const sequelize = new Sequelize({
     dialect: "sqlite",
-    storage: process.env.DB_STORAGE || './sahafa.sqlite',
+    storage: process.env.DB_STORAGE || './poiseidon.sqlite',
     logging: false, // Tắt log query cho gọn
 });
 

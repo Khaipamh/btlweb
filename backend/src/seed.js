@@ -30,9 +30,9 @@ const seed = async () => {
         const hash = await bcrypt.hash('123456', salt);
         
         const usersData = [
-            { full_name: 'Admin User', email: 'admin@sahafa.com', password: hash, role: 'admin', phone: '0901000001' },
-            { full_name: 'Staff Member', email: 'staff@sahafa.com', password: hash, role: 'employee', phone: '0901000002' },
-            { full_name: 'Normal Customer', email: 'user@sahafa.com', password: hash, role: 'customer', phone: '0901000003' }
+            { full_name: 'Admin User', email: 'admin@poiseidon.com', password: hash, role: 'admin', phone: '0901000001' },
+            { full_name: 'Staff Member', email: 'staff@poiseidon.com', password: hash, role: 'employee', phone: '0901000002' },
+            { full_name: 'Normal Customer', email: 'user@poiseidon.com', password: hash, role: 'customer', phone: '0901000003' }
         ];
 
         const createdUsers = [];
@@ -568,10 +568,10 @@ const seed = async () => {
         // Posts
         const adminUser = createdUsers.find(u => u.role === 'admin');
         await Post.create({
-            title: 'Grand Opening Sahafa Bookstore',
+            title: 'Grand Opening Poiseidon Bookstore',
             post_slug: 'grand-opening',
             thumbnail_url: 'https://placehold.co/800x400?text=Grand+Opening',
-            content: 'Welcome to Sahafa Bookstore. We are happy to serve you with the best books from around the world.',
+            content: 'Welcome to Poiseidon Bookstore. We are happy to serve you with the best books from around the world.',
             status: 'published',
             user_id: adminUser.user_id,
             category_id: categoryMap['News']

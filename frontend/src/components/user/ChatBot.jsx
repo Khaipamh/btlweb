@@ -58,7 +58,7 @@ export default function ChatBot() {
           <div className="bg-pink-600 p-3 flex justify-between items-center text-white">
             <div className="flex items-center gap-2">
               <span>💬</span>
-              <span className="font-bold">Trợ lý ảo Sahafa</span>
+              <span className="font-bold">Trợ lý ảo Poiseidon</span>
             </div>
             <button type="button" className="cursor-pointer hover:text-gray-200" onClick={() => setIsOpen(false)}>
               ✕
