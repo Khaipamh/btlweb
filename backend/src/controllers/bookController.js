@@ -29,7 +29,7 @@ const getAllBooks = async (req, res) => {
         }
 
         if (category) {
-            whereClause['$Genre.genre_name$'] = { [Op.like]: `%${category}%` };
+            whereClause['$Genre.genre_slug$'] = { [Op.like]: `%${category}%` };
         }
 
         const { count, rows } = await Book.findAndCountAll({
