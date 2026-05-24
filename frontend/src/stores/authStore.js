@@ -12,9 +12,16 @@ export const useAuthStore = create((set) => ({
   token: localStorage.getItem('token'),
   isLoading: false,
   error: null,
+  fieldErrors: {},
+
+  clearFieldError: (field) => {
+    set((state) => ({
+      fieldErrors: { ...state.fieldErrors, [field]: null },
+    }));
+  },
 
   login: async (email, password) => {
-    set({ isLoading: true, error: null });
+    set({ isLoading: true, error: null, fieldErrors: {} });
     try {
       const res = await api.post('/api/auth/login', { email, password });
       let finalData = res;
@@ -26,6 +33,7 @@ export const useAuthStore = create((set) => ({
           token: finalData.token,
           user: finalData.user,
           isLoading: false,
+          fieldErrors: {},
         });
         return true;
       }
@@ -33,16 +41,18 @@ export const useAuthStore = create((set) => ({
       return false;
     } catch (err) {
       console.error('Lỗi Đăng Nhập:', err);
+      const errorMessage = err.response?.data?.message || 'Đăng nhập thất bại';
       set({
-        error: err.response?.data?.message || 'Đăng nhập thất bại',
+        error: errorMessage,
         isLoading: false,
+        fieldErrors: {},
       });
       return false;
     }
   },
 
   register: async (userData) => {
-    set({ isLoading: true, error: null });
+    set({ isLoading: true, error: null, fieldErrors: {} });
     try {
       const res = await api.post('/api/auth/register', userData);
       if (res?.success === false) {
@@ -66,6 +76,7 @@ export const useAuthStore = create((set) => ({
       set({
         error: msg,
         isLoading: false,
+        fieldErrors: {},
       });
       return false;
     }

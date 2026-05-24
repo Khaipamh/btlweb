@@ -7,6 +7,7 @@ export default function LoginModal({ initialTab = 'login', onClose }) {
   const login = useAuthStore((s) => s.login);
   const register = useAuthStore((s) => s.register);
   const authError = useAuthStore((s) => s.error);
+  const clearFieldError = useAuthStore((s) => s.clearFieldError);
 
   const [activeTab, setActiveTab] = useState(initialTab);
   const [showPassword, setShowPassword] = useState(false);
@@ -16,6 +17,8 @@ export default function LoginModal({ initialTab = 'login', onClose }) {
   const [tempPasswordResult, setTempPasswordResult] = useState('');
   const [loginForm, setLoginForm] = useState({ email: '', password: '' });
   const [registerForm, setRegisterForm] = useState({ full_name: '', email: '', password: '' });
+  const [loginErrors, setLoginErrors] = useState({ email: '', password: '' });
+  const [registerErrors, setRegisterErrors] = useState({ full_name: '', email: '', password: '' });
 
   useEffect(() => {
     setActiveTab(initialTab);
@@ -28,6 +31,18 @@ export default function LoginModal({ initialTab = 'login', onClose }) {
   const resetForgotState = () => {
     setForgotEmail('');
     setTempPasswordResult('');
+  };
+
+  const parseFieldErrors = (errorMessage) => {
+    const errors = {};
+    if (!errorMessage) return errors;
+    
+    const lowerMsg = errorMessage.toLowerCase();
+    if (lowerMsg.includes('email')) errors.email = errorMessage;
+    if (lowerMsg.includes('mật khẩu') || lowerMsg.includes('password')) errors.password = errorMessage;
+    if (lowerMsg.includes('tên') || lowerMsg.includes('full_name')) errors.full_name = errorMessage;
+    
+    return errors;
   };
 
   const switchToForgot = () => {
@@ -61,6 +76,7 @@ export default function LoginModal({ initialTab = 'login', onClose }) {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoginErrors({});
     setLoading(true);
     try {
       const success = await login(loginForm.email, loginForm.password);
@@ -68,7 +84,12 @@ export default function LoginModal({ initialTab = 'login', onClose }) {
         message.success('Đăng nhập thành công!');
         handleClose();
       } else {
-        message.error(authError || 'Đăng nhập thất bại');
+        const errors = parseFieldErrors(authError);
+        if (Object.keys(errors).length > 0) {
+          setLoginErrors(errors);
+        } else {
+          message.error(authError || 'Đăng nhập thất bại');
+        }
       }
     } catch {
       message.error('Lỗi kết nối server');
@@ -79,15 +100,27 @@ export default function LoginModal({ initialTab = 'login', onClose }) {
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    setRegisterErrors({});
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9])/;
+    
+    const newErrors = {};
+    if (!registerForm.full_name.trim()) {
+      newErrors.full_name = 'Vui lòng nhập họ tên';
+    }
+    if (!registerForm.email.trim()) {
+      newErrors.email = 'Vui lòng nhập email';
+    }
     if (registerForm.password.length < 8) {
-      message.warning('Mật khẩu phải có ít nhất 8 ký tự');
+      newErrors.password = 'Mật khẩu phải có ít nhất 8 ký tự';
+    } else if (!passwordRegex.test(registerForm.password)) {
+      newErrors.password = 'Mật khẩu cần chữ hoa, chữ thường, số và ký tự đặc biệt (vd: Abc12345!)';
+    }
+    
+    if (Object.keys(newErrors).length > 0) {
+      setRegisterErrors(newErrors);
       return;
     }
-    if (!passwordRegex.test(registerForm.password)) {
-      message.warning('Mật khẩu cần chữ hoa, chữ thường, số và ký tự đặc biệt (vd: Abc12345!)');
-      return;
-    }
+    
     setLoading(true);
     try {
       const success = await register(registerForm);
@@ -96,7 +129,12 @@ export default function LoginModal({ initialTab = 'login', onClose }) {
         message.success('Đăng ký và đăng nhập thành công!');
         handleClose();
       } else {
-        message.error(errMsg || authError || 'Đăng ký thất bại');
+        const errors = parseFieldErrors(errMsg);
+        if (Object.keys(errors).length > 0) {
+          setRegisterErrors(errors);
+        } else {
+          message.error(errMsg || authError || 'Đăng ký thất bại');
+        }
       }
     } catch {
       message.error('Lỗi kết nối server. Kiểm tra backend đang chạy tại cổng 3000.');
@@ -167,20 +205,31 @@ export default function LoginModal({ initialTab = 'login', onClose }) {
                 <label className="block text-gray-600 text-sm font-medium mb-1">Email</label>
                 <input
                   value={loginForm.email}
-                  onChange={(e) => setLoginForm((f) => ({ ...f, email: e.target.value }))}
+                  onChange={(e) => {
+                    setLoginForm((f) => ({ ...f, email: e.target.value }));
+                    if (loginErrors.email) setLoginErrors((e) => ({ ...e, email: '' }));
+                  }}
                   type="email"
-                  className="w-full border border-gray-300 rounded-md px-4 py-2 outline-none focus:border-pink-500 transition"
+                  className={`w-full border rounded-md px-4 py-2 outline-none focus:border-pink-500 transition ${
+                    loginErrors.email ? 'border-red-500' : 'border-gray-300'
+                  }`}
                   required
                 />
+                {loginErrors.email && <p className="text-red-500 text-xs mt-1">{loginErrors.email}</p>}
               </div>
               <div>
                 <label className="block text-gray-600 text-sm font-medium mb-1">Mật khẩu</label>
                 <div className="relative">
                   <input
                     value={loginForm.password}
-                    onChange={(e) => setLoginForm((f) => ({ ...f, password: e.target.value }))}
+                    onChange={(e) => {
+                      setLoginForm((f) => ({ ...f, password: e.target.value }));
+                      if (loginErrors.password) setLoginErrors((e) => ({ ...e, password: '' }));
+                    }}
                     type={showPassword ? 'text' : 'password'}
-                    className="w-full border border-gray-300 rounded-md px-4 py-2 outline-none focus:border-pink-500 transition"
+                    className={`w-full border rounded-md px-4 py-2 outline-none focus:border-pink-500 transition ${
+                      loginErrors.password ? 'border-red-500' : 'border-gray-300'
+                    }`}
                     required
                   />
                   <button
@@ -191,6 +240,7 @@ export default function LoginModal({ initialTab = 'login', onClose }) {
                     {showPassword ? 'Ẩn' : 'Hiện'}
                   </button>
                 </div>
+                {loginErrors.password && <p className="text-red-500 text-xs mt-1">{loginErrors.password}</p>}
                 <div className="text-right mt-1">
                   <button type="button" onClick={switchToForgot} className="text-xs text-red-500 hover:underline">
                     Quên mật khẩu?
@@ -213,30 +263,47 @@ export default function LoginModal({ initialTab = 'login', onClose }) {
                 <label className="block text-gray-600 text-sm font-medium mb-1">Họ và tên</label>
                 <input
                   value={registerForm.full_name}
-                  onChange={(e) => setRegisterForm((f) => ({ ...f, full_name: e.target.value }))}
+                  onChange={(e) => {
+                    setRegisterForm((f) => ({ ...f, full_name: e.target.value }));
+                    if (registerErrors.full_name) setRegisterErrors((e) => ({ ...e, full_name: '' }));
+                  }}
                   type="text"
-                  className="w-full border border-gray-300 rounded-md px-4 py-2 outline-none focus:border-pink-500 transition"
+                  className={`w-full border rounded-md px-4 py-2 outline-none focus:border-pink-500 transition ${
+                    registerErrors.full_name ? 'border-red-500' : 'border-gray-300'
+                  }`}
                   required
                 />
+                {registerErrors.full_name && <p className="text-red-500 text-xs mt-1">{registerErrors.full_name}</p>}
               </div>
               <div>
                 <label className="block text-gray-600 text-sm font-medium mb-1">Email</label>
                 <input
                   value={registerForm.email}
-                  onChange={(e) => setRegisterForm((f) => ({ ...f, email: e.target.value }))}
+                  onChange={(e) => {
+                    setRegisterForm((f) => ({ ...f, email: e.target.value }));
+                    if (registerErrors.email) setRegisterErrors((e) => ({ ...e, email: '' }));
+                  }}
                   type="email"
-                  className="w-full border border-gray-300 rounded-md px-4 py-2 outline-none focus:border-pink-500 transition"
+                  className={`w-full border rounded-md px-4 py-2 outline-none focus:border-pink-500 transition ${
+                    registerErrors.email ? 'border-red-500' : 'border-gray-300'
+                  }`}
                   required
                 />
+                {registerErrors.email && <p className="text-red-500 text-xs mt-1">{registerErrors.email}</p>}
               </div>
               <div>
                 <label className="block text-gray-600 text-sm font-medium mb-1">Mật khẩu</label>
                 <div className="relative">
                   <input
                     value={registerForm.password}
-                    onChange={(e) => setRegisterForm((f) => ({ ...f, password: e.target.value }))}
+                    onChange={(e) => {
+                      setRegisterForm((f) => ({ ...f, password: e.target.value }));
+                      if (registerErrors.password) setRegisterErrors((e) => ({ ...e, password: '' }));
+                    }}
                     type={showRegisterPassword ? 'text' : 'password'}
-                    className="w-full border border-gray-300 rounded-md px-4 py-2 outline-none focus:border-pink-500 transition"
+                    className={`w-full border rounded-md px-4 py-2 outline-none focus:border-pink-500 transition ${
+                      registerErrors.password ? 'border-red-500' : 'border-gray-300'
+                    }`}
                     required
                   />
                   <button
@@ -247,6 +314,7 @@ export default function LoginModal({ initialTab = 'login', onClose }) {
                     {showRegisterPassword ? 'Ẩn' : 'Hiện'}
                   </button>
                 </div>
+                {registerErrors.password && <p className="text-red-500 text-xs mt-1">{registerErrors.password}</p>}
                 <p className="text-xs text-gray-500 mt-1">
                   Ít nhất 8 ký tự, gồm chữ hoa, chữ thường, số và ký tự đặc biệt (vd: <strong>Abc12345!</strong>)
                 </p>
